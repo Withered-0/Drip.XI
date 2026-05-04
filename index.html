@@ -421,13 +421,8 @@
             <div class="form-group">
                 <label for="size">SIZE *</label>
                 <select id="size" required>
-                    <option value="" disabled selected>Select size</option>
-                    <option>XS</option>
-                    <option>S (Small)</option>
-                    <option>M (Medium)</option>
-                    <option>L (Large)</option>
-                    <option>XL (Extra Large)</option>
-                    <option>XXL</option>
+                    <option selected>Large</option>
+                    <option>2XL</option>
                     <option>3XL</option>
                 </select>
             </div>
@@ -663,6 +658,8 @@
         elements.summarySize.textContent = size;
 	        elements.summaryCustom.textContent = custom;
 	    }
+
+	    updateSummary();
 
 	    function validateOrderForm(form) {
 	        ['fullName', 'phone', 'email', 'address'].forEach(id => {
