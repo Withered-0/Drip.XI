@@ -661,17 +661,45 @@
             payment_ref:   'BANK TRANSFER - Pending confirmation',
             amount:        '₦30,000'
         }).then(function() {
-            document.getElementById('successBox').innerHTML = `
-                <h3>📋 ORDER RECEIVED!</h3>
-                <p>
-                    Thank you ${fullName}! Your order details have been submitted.<br><br>
-                    <strong style="color: var(--gold);">NEXT STEP:</strong><br>
-                    Transfer <strong style="font-size: 1.1rem;">₦30,000</strong> to:<br>
-                    <strong>Opay - 9033932478 (Boluwatife Ebenezer)</strong><br><br>
-                    Then send your payment receipt to us on <a href="https://wa.me/2347069533486" target="_blank" style="color: #25D366; font-weight: 600;">WhatsApp</a> with your name to confirm your order. We'll start working on it immediately! 🔥
-                </p>
-            `;
-            document.getElementById('successBox').classList.add('show');
+            const successBox = document.getElementById('successBox');
+            const title = document.createElement('h3');
+            const message = document.createElement('p');
+            const nextStep = document.createElement('strong');
+            const amount = document.createElement('strong');
+            const account = document.createElement('strong');
+            const whatsappLink = document.createElement('a');
+
+            title.textContent = '📋 ORDER RECEIVED!';
+            nextStep.textContent = 'NEXT STEP:';
+            nextStep.style.color = 'var(--gold)';
+            amount.textContent = '₦30,000';
+            amount.style.fontSize = '1.1rem';
+            account.textContent = 'Opay - 9033932478 (Boluwatife Ebenezer)';
+            whatsappLink.href = 'https://wa.me/2347069533486';
+            whatsappLink.target = '_blank';
+            whatsappLink.style.color = '#25D366';
+            whatsappLink.style.fontWeight = '600';
+            whatsappLink.textContent = 'WhatsApp';
+
+            message.append(
+                `Thank you ${fullName}! Your order details have been submitted.`,
+                document.createElement('br'),
+                document.createElement('br'),
+                nextStep,
+                document.createElement('br'),
+                'Transfer ',
+                amount,
+                ' to:',
+                document.createElement('br'),
+                account,
+                document.createElement('br'),
+                document.createElement('br'),
+                'Then send your payment receipt to us on ',
+                whatsappLink,
+                " with your name to confirm your order. We'll start working on it immediately! 🔥"
+            );
+            successBox.replaceChildren(title, message);
+            successBox.classList.add('show');
             document.getElementById('orderForm').style.display = 'none';
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }).catch(function(err) {
