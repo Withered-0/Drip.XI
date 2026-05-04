@@ -358,7 +358,7 @@
 
 <header>
     <a href="#" class="logo">👑 DRIP XI</a>
-    <a href="https://wa.me/2347069533486" target="_blank" class="wa-btn">
+    <a href="https://wa.me/2347069533486" target="_blank" rel="noopener noreferrer" class="wa-btn">
         💬 <span class="label">CHAT ON</span> WHATSAPP
     </a>
 </header>
@@ -385,30 +385,30 @@
         <p>
             Payment received and your order is locked in! 🔒<br>
             We'll reach out to confirm your details and arrange delivery.<br><br>
-            Questions? <a href="https://wa.me/2347069533486" target="_blank">Chat with us on WhatsApp</a>
+            Questions? <a href="https://wa.me/2347069533486" target="_blank" rel="noopener noreferrer">Chat with us on WhatsApp</a>
         </p>
     </div>
 
     <form id="orderForm">
         <div class="form-row">
             <div class="form-group">
-                <label>FULL NAME *</label>
-                <input type="text" id="fullName" placeholder="Your full name" required>
+                <label for="fullName">FULL NAME *</label>
+                <input type="text" id="fullName" placeholder="Your full name" autocomplete="name" minlength="2" maxlength="80" required>
             </div>
             <div class="form-group">
-                <label>PHONE NUMBER *</label>
-                <input type="tel" id="phone" placeholder="e.g. 08012345678" required>
+                <label for="phone">PHONE NUMBER *</label>
+                <input type="tel" id="phone" placeholder="e.g. 08012345678" autocomplete="tel" inputmode="tel" pattern="[0-9+()\s-]{7,20}" required>
             </div>
         </div>
 
         <div class="form-group">
-            <label>EMAIL ADDRESS *</label>
-            <input type="email" id="email" placeholder="your@email.com" required>
+            <label for="email">EMAIL ADDRESS *</label>
+            <input type="email" id="email" placeholder="your@email.com" autocomplete="email" maxlength="120" required>
         </div>
 
         <div class="form-row">
             <div class="form-group">
-                <label>JERSEY TYPE *</label>
+                <label for="jerseyType">JERSEY TYPE *</label>
                 <select id="jerseyType" required>
                     <option value="" disabled selected>Select jersey type</option>
                     <option value="Football">⚽ Football Jersey</option>
@@ -417,7 +417,7 @@
                 </select>
             </div>
             <div class="form-group">
-                <label>SIZE *</label>
+                <label for="size">SIZE *</label>
                 <select id="size" required>
                     <option value="" disabled selected>Select size</option>
                     <option>XS</option>
@@ -433,7 +433,7 @@
 
         <!-- Team/Club Selection (appears dynamically based on jersey type) -->
         <div class="form-group" id="teamSection" style="display: none;">
-            <label id="teamLabel">SELECT TEAM/CLUB *</label>
+            <label id="teamLabel" for="teamClub">SELECT TEAM/CLUB *</label>
             <select id="teamClub">
                 <option value="" disabled selected>First select jersey type above</option>
             </select>
@@ -441,23 +441,23 @@
 
         <div class="form-row">
             <div class="form-group">
-                <label>CUSTOM NAME ON JERSEY</label>
-                <input type="text" id="customName" placeholder="e.g. DRIP KING (optional)">
+                <label for="customName">CUSTOM NAME ON JERSEY</label>
+                <input type="text" id="customName" placeholder="e.g. DRIP KING (optional)" maxlength="40">
             </div>
             <div class="form-group">
-                <label>JERSEY NUMBER</label>
-                <input type="text" id="jerseyNumber" placeholder="e.g. 11 (optional)">
+                <label for="jerseyNumber">JERSEY NUMBER</label>
+                <input type="text" id="jerseyNumber" placeholder="e.g. 11 (optional)" inputmode="numeric" pattern="[0-9]{1,3}" maxlength="3">
             </div>
         </div>
 
         <div class="form-group">
-            <label>DELIVERY ADDRESS *</label>
-            <textarea id="address" placeholder="Full delivery address including city and state" required></textarea>
+            <label for="address">DELIVERY ADDRESS *</label>
+            <textarea id="address" placeholder="Full delivery address including city and state" autocomplete="street-address" minlength="10" maxlength="300" required></textarea>
         </div>
 
         <div class="form-group">
-            <label>ADDITIONAL NOTES</label>
-            <textarea id="notes" placeholder="Special requests, colour preferences, etc." style="min-height:60px"></textarea>
+            <label for="notes">ADDITIONAL NOTES</label>
+            <textarea id="notes" placeholder="Special requests, colour preferences, etc." style="min-height:60px" maxlength="300"></textarea>
         </div>
 
         <!-- PAYMENT METHOD -->
@@ -482,7 +482,7 @@
                 </div>
             </div>
             <div style="margin-top: 1.5rem; padding: 1rem; background: rgba(37,211,102,0.08); border: 1px solid #25D366; font-size: 0.85rem; line-height: 1.6; color: var(--muted);">
-                <strong style="color: #25D366;">📱 AFTER PAYMENT:</strong> Send your payment receipt/screenshot to us on <a href="https://wa.me/2347069533486" target="_blank" style="color: #25D366; text-decoration: none; font-weight: 600;">WhatsApp (+234 706 953 3486)</a> with your name to confirm your order.
+                <strong style="color: #25D366;">📱 AFTER PAYMENT:</strong> Send your payment receipt/screenshot to us on <a href="https://wa.me/2347069533486" target="_blank" rel="noopener noreferrer" style="color: #25D366; text-decoration: none; font-weight: 600;">WhatsApp (+234 706 953 3486)</a> with your name to confirm your order.
             </div>
         </div>
 
@@ -506,8 +506,8 @@
     <div class="socials-title">CONNECT WITH US</div>
     <div class="socials-sub">FOLLOW FOR NEW DROPS, UPDATES & INSPIRATION</div>
     <div class="social-links">
-        <a href="https://wa.me/2347069533486" target="_blank" class="social-link whatsapp">💬 WHATSAPP</a>
-        <a href="https://www.instagram.com/dripped_eleven/" target="_blank" class="social-link">📸 INSTAGRAM</a>
+        <a href="https://wa.me/2347069533486" target="_blank" rel="noopener noreferrer" class="social-link whatsapp">💬 WHATSAPP</a>
+        <a href="https://www.instagram.com/dripped_eleven/" target="_blank" rel="noopener noreferrer" class="social-link">📸 INSTAGRAM</a>
     </div>
 </div>
 
@@ -533,11 +533,20 @@
     //
     // ════════════════════════════════════════════════════════════
 
-    const EMAILJS_PUBLIC_KEY  = "lmg0gZVXEITGHCSbS";
-    const EMAILJS_SERVICE_ID  = "service_9u6ulhs";
-    const EMAILJS_TEMPLATE_ID = "template_5p2of5c";
+	    const EMAILJS_PUBLIC_KEY  = "lmg0gZVXEITGHCSbS";
+	    const EMAILJS_SERVICE_ID  = "service_9u6ulhs";
+	    const EMAILJS_TEMPLATE_ID = "template_5p2of5c";
+	    const emailjsClient = window.emailjs;
+	    let emailjsReady = false;
 
-    emailjs.init(EMAILJS_PUBLIC_KEY);
+	    if (emailjsClient && typeof emailjsClient.init === 'function') {
+	        try {
+	            emailjsClient.init(EMAILJS_PUBLIC_KEY);
+	            emailjsReady = true;
+	        } catch (err) {
+	            console.error('EmailJS init error:', err);
+	        }
+	    }
 
     // Team/Club options for each sport
     const teamOptions = {
@@ -583,10 +592,15 @@
             }
             
             // Populate team options
-            teamClub.innerHTML = '<option value="" disabled selected>Select team/club</option>';
-            teamOptions[jerseyType].forEach(team => {
-                const option = document.createElement('option');
-                option.value = team;
+	            const placeholder = document.createElement('option');
+	            placeholder.value = '';
+	            placeholder.disabled = true;
+	            placeholder.selected = true;
+	            placeholder.textContent = 'Select team/club';
+	            teamClub.replaceChildren(placeholder);
+	            teamOptions[jerseyType].forEach(team => {
+	                const option = document.createElement('option');
+	                option.value = team;
                 option.textContent = team;
                 teamClub.appendChild(option);
             });
@@ -607,9 +621,9 @@
         }
     });
 
-    function updateSummary() {
-        const type = document.getElementById('jerseyType').value || '—';
-        const team = document.getElementById('teamClub').value || '';
+	    function updateSummary() {
+	        const type = document.getElementById('jerseyType').value || '—';
+	        const team = document.getElementById('teamClub').value || '';
         const size = document.getElementById('size').value || '—';
         const name = document.getElementById('customName').value;
         const num  = document.getElementById('jerseyNumber').value;
@@ -625,13 +639,27 @@
         
         document.getElementById('summaryType').textContent = jerseyDisplay;
         document.getElementById('summarySize').textContent = size;
-        document.getElementById('summaryCustom').textContent = custom;
-    }
+	        document.getElementById('summaryCustom').textContent = custom;
+	    }
 
-    document.getElementById('orderForm').addEventListener('submit', function(e) {
-        e.preventDefault();
+	    function validateOrderForm(form) {
+	        ['fullName', 'phone', 'email', 'address'].forEach(id => {
+	            const field = document.getElementById(id);
+	            field.setCustomValidity(field.value.trim() ? '' : 'Please fill out this field.');
+	        });
+	        const teamClub = document.getElementById('teamClub');
+	        teamClub.setCustomValidity(teamClub.required && !teamClub.value ? 'Please select a team/club.' : '');
+	        return form.reportValidity();
+	    }
 
-        const fullName     = document.getElementById('fullName').value.trim();
+	    document.getElementById('orderForm').addEventListener('submit', function(e) {
+	        e.preventDefault();
+
+	        if (!validateOrderForm(this)) {
+	            return;
+	        }
+
+	        const fullName     = document.getElementById('fullName').value.trim();
         const phone        = document.getElementById('phone').value.trim();
         const email        = document.getElementById('email').value.trim();
         const jerseyType   = document.getElementById('jerseyType').value;
@@ -639,15 +667,23 @@
         const size         = document.getElementById('size').value;
         const customName   = document.getElementById('customName').value.trim() || 'None';
         const jerseyNumber = document.getElementById('jerseyNumber').value.trim() || 'None';
-        const address      = document.getElementById('address').value.trim();
-        const notes        = document.getElementById('notes').value.trim() || 'None';
+	        const address      = document.getElementById('address').value.trim();
+	        const notes        = document.getElementById('notes').value.trim() || 'None';
 
-        const btn = document.getElementById('submitBtn');
-        btn.disabled = true;
-        btn.innerHTML = '<span class="spinner"></span> SUBMITTING ORDER...';
-        
-        // Send email notification to store owner
-        emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+	        const btn = document.getElementById('submitBtn');
+	        const spinner = document.createElement('span');
+	        spinner.className = 'spinner';
+
+	        if (!emailjsReady || !emailjsClient || typeof emailjsClient.send !== 'function') {
+	            alert('Order email service is unavailable right now. Please send your order details directly on WhatsApp: +234 706 953 3486');
+	            return;
+	        }
+
+	        btn.disabled = true;
+	        btn.replaceChildren(spinner, ' SUBMITTING ORDER...');
+	        
+	        // Send email notification to store owner
+	        emailjsClient.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
             customer_name: fullName,
             phone:         phone,
             email:         email,
@@ -675,9 +711,10 @@
             amount.textContent = '₦30,000';
             amount.style.fontSize = '1.1rem';
             account.textContent = 'Opay - 9033932478 (Boluwatife Ebenezer)';
-            whatsappLink.href = 'https://wa.me/2347069533486';
-            whatsappLink.target = '_blank';
-            whatsappLink.style.color = '#25D366';
+	            whatsappLink.href = 'https://wa.me/2347069533486';
+	            whatsappLink.target = '_blank';
+	            whatsappLink.rel = 'noopener noreferrer';
+	            whatsappLink.style.color = '#25D366';
             whatsappLink.style.fontWeight = '600';
             whatsappLink.textContent = 'WhatsApp';
 
@@ -704,10 +741,10 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }).catch(function(err) {
             console.error('Email error:', err);
-            alert('There was an error submitting your order. Please try again or contact us directly on WhatsApp: +234 706 953 3486');
-            btn.disabled = false;
-            btn.innerHTML = 'SUBMIT ORDER →';
-        });
+	            alert('There was an error submitting your order. Please try again or contact us directly on WhatsApp: +234 706 953 3486');
+	            btn.disabled = false;
+	            btn.textContent = 'SUBMIT ORDER →';
+	        });
     });
 </script>
 
