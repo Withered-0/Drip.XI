@@ -722,8 +722,13 @@
                 radial-gradient(circle at center top, rgba(232,180,79,0.08), transparent 19rem),
                 #080808;
             border-top: 1px solid var(--border);
-            padding: 3.5rem 5%;
+            padding: 4.5rem 5%;
             text-align: center;
+        }
+
+        .socials-content {
+            width: min(980px, 100%);
+            margin: 0 auto;
         }
 
         .socials-title {
@@ -732,7 +737,7 @@
             letter-spacing: 0.06em;
             line-height: 1;
             color: var(--gold);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.6rem;
         }
 
         .socials-sub {
@@ -742,24 +747,28 @@
             font-weight: 600;
             letter-spacing: 0.08em;
             line-height: 1.6;
-            margin-bottom: 2rem;
+            margin-bottom: 2.8rem;
             text-transform: uppercase;
         }
 
-        .social-links {
+        .connect-buttons {
             display: flex;
             justify-content: center;
-            gap: 1rem;
+            gap: 1.5rem;
             flex-wrap: wrap;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
-        .social-link {
+        .connect-btn {
             display: inline-flex;
             align-items: center;
-            gap: 0.6rem;
-            padding: 0.82rem 1.8rem;
+            justify-content: center;
+            gap: 0.7rem;
+            padding: 0.95rem 2rem;
             border: 1px solid var(--border);
             border-radius: 4px;
+            background: rgba(10,10,10,0.55);
             color: var(--text);
             text-decoration: none;
             font-size: 0.78rem;
@@ -768,19 +777,77 @@
             line-height: 1.3;
             font-family: var(--font-accent);
             text-transform: uppercase;
+            cursor: pointer;
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), border-color 0.4s ease, background 0.4s ease, box-shadow 0.4s ease;
+            flex: 1;
+            min-width: 160px;
+            max-width: 180px;
+            position: relative;
+            overflow: hidden;
         }
 
-        .social-link:hover {
-            transform: translateY(-2px);
+        .connect-btn svg {
+            width: 1.1rem;
+            height: 1.1rem;
+            flex: 0 0 auto;
+            transition: color 0.4s ease;
+        }
+
+        .connect-btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 30% 30%, rgba(232,180,79,0.06), transparent 40%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .connect-btn:hover {
+            transform: translateY(-4px);
             border-color: var(--gold);
-            color: var(--gold);
-            box-shadow: 0 14px 32px rgba(232,180,79,0.12);
+            background: rgba(10,10,10,0.7);
+            box-shadow: 0 12px 28px rgba(232,180,79,0.12), inset 0 0 1px rgba(232,180,79,0.1);
         }
 
-        .social-link.whatsapp:hover {
-            border-color: var(--green);
-            color: #BDF7CF;
-            box-shadow: 0 14px 32px rgba(37,211,102,0.12);
+        .connect-btn:hover::before {
+            opacity: 1;
+        }
+
+        .connect-btn:hover svg {
+            color: var(--gold);
+        }
+
+        .connect-btn:focus-visible {
+            outline: 2px solid var(--gold);
+            outline-offset: 3px;
+        }
+
+        @media (max-width: 600px) {
+            .connect-buttons {
+                gap: 1rem;
+                flex-direction: column;
+            }
+
+            .connect-btn {
+                width: 100%;
+                max-width: none;
+                min-width: auto;
+            }
+
+            .socials-bar {
+                padding: 3.5rem 5%;
+            }
+
+            .socials-title {
+                font-size: 1.6rem;
+            }
+
+            .socials-sub {
+                font-size: 0.8rem;
+                margin-bottom: 2.2rem;
+            }
         }
 
         footer {
@@ -1103,21 +1170,31 @@
 </section>
 
 <section class="socials-bar">
-    <div class="socials-title">FOLLOW THE DRIP</div>
-    <div class="socials-sub">STAY UPDATED WITH OUR LATEST DROPS</div>
-    <div class="social-links">
-        <a href="https://wa.me/2347069533486" target="_blank" rel="noopener noreferrer" class="social-link whatsapp">
-            <svg viewBox="0 0 24 24"><path d="M4.8 19.2l1-3.7A7.5 7.5 0 1 1 9 18.7l-4.2.5z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M9.5 8.4c.2-.4.4-.4.7-.4h.5c.2 0 .4.1.5.4l.7 1.5c.1.3.1.5-.1.7l-.4.5c.7 1.1 1.5 1.9 2.7 2.5l.5-.6c.2-.2.4-.3.7-.2l1.6.7c.3.1.4.3.4.6v.4c0 .4-.2.7-.5.9-.8.4-2.3.1-4-.9-1.9-1.1-3.1-2.2-3.9-4.1" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            WHATSAPP
-        </a>
-        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-link">
-            <svg viewBox="0 0 24 24"><path d="M12 2c2.7 0 3 0 4.1.1 1 .1 1.7.3 2.3.6.6.3 1.2.7 1.7 1.2.5.5.9 1.1 1.2 1.7.3.6.5 1.3.6 2.3.1 1.1.1 1.4.1 4.1s0 3-.1 4.1c-.1 1-.3 1.7-.6 2.3-.3.6-.7 1.2-1.2 1.7-.5.5-1.1.9-1.7 1.2-.6.3-1.3.5-2.3.6-1.1.1-1.4.1-4.1.1s-3 0-4.1-.1c-1-.1-1.7-.3-2.3-.6-.6-.3-1.2-.7-1.7-1.2-.5-.5-.9-1.1-1.2-1.7-.3-.6-.5-1.3-.6-2.3C2 15 2 14.7 2 12s0-3 .1-4.1c.1-1 .3-1.7.6-2.3.3-.6.7-1.2 1.2-1.7.5-.5 1.1-.9 1.7-1.2.6-.3 1.3-.5 2.3-.6C9 2 9.3 2 12 2m0-1C9.2 1 8.9 1 7.8 1.1c-1.1.1-1.9.3-2.6.7C4.5 2 3.9 2.5 3.3 3.1 2.7 3.7 2.2 4.3 1.8 5.2 1.4 5.9 1.2 6.8 1.1 7.9 1 9 1 9.3 1 12s0 3 .1 4.1c.1 1.1.3 1.9.7 2.6.4.9.9 1.5 1.5 2.1.6.6 1.2 1.1 2.1 1.5.7.4 1.5.6 2.6.7 1.1.1 1.4.1 4.1.1s3 0 4.1-.1c1.1-.1 1.9-.3 2.6-.7.9-.4 1.5-.9 2.1-1.5.6-.6 1.1-1.2 1.5-2.1.4-.7.6-1.5.7-2.6.1-1.1.1-1.4.1-4.1s0-3-.1-4.1c-.1-1.1-.3-1.9-.7-2.6-.4-.9-.9-1.5-1.5-2.1-.6-.6-1.2-1.1-2.1-1.5-.7-.4-1.5-.6-2.6-.7C15 1 14.7 1 12 1z" fill="currentColor"/><path d="M12 6a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm0 5a2 2 0 1 1 0-4 2 2 0 0 1 0 4z" fill="currentColor"/><circle cx="18.5" cy="5.5" r="1.5" fill="currentColor"/></svg>
-            INSTAGRAM
-        </a>
-        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-link">
-            <svg viewBox="0 0 24 24"><path d="M22.5 5.6c-.8.4-1.8.6-2.8.7 1-.6 1.8-1.6 2.2-2.7-1 .6-2 1-3.1 1.2-.9-1-2.2-1.6-3.6-1.6-2.7 0-4.9 2.2-4.9 4.9 0 .4 0 .8.1 1.2-4-.2-7.6-2.1-10-5-1.1 1.8-.6 4 1.1 5.2-.8 0-1.5-.2-2.1-.6v.1c0 2.4 1.7 4.4 3.9 4.8-.4.1-.9.2-1.3.2-.3 0-.7 0-1-.1.7 2.1 2.6 3.6 4.8 3.7-1.7 1.3-3.8 2-6.1 2-.4 0-.8 0-1.2-.1 2.2 1.4 4.8 2.2 7.6 2.2 9.1 0 14-7.5 14-14 0-.2 0-.4 0-.6.9-.7 1.8-1.5 2.5-2.5z" fill="currentColor"/></svg>
-            TWITTER
-        </a>
+    <div class="socials-content">
+        <div class="socials-title">CONNECT WITH US</div>
+        <div class="socials-sub">FOLLOW • CHAT • COLLABORATE</div>
+        <div class="connect-buttons" aria-label="Connect with DRIP XI">
+            <a href="https://wa.me/2347069533486" target="_blank" rel="noopener noreferrer" class="connect-btn" aria-label="Connect on WhatsApp">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                    <path d="M4.8 19.2l1-3.7A7.5 7.5 0 1 1 9 18.7l-4.2.5z" stroke-linejoin="round"/>
+                    <path d="M9.5 8.4c.2-.4.4-.4.7-.4h.5c.2 0 .4.1.5.4l.7 1.5c.1.3.1.5-.1.7l-.4.5c.7 1.1 1.5 1.9 2.7 2.5l.5-.6c.2-.2.4-.3.7-.2l1.6.7c.3.1.4.3.4.6v.4c0 .4-.2.7-.5.9-.8.4-2.3.1-4-.9-1.9-1.1-3.1-2.2-3.9-4.1" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                WHATSAPP
+            </a>
+            <a href="https://www.tiktok.com/@drip.xi_" target="_blank" rel="noopener noreferrer" class="connect-btn" aria-label="Connect on TikTok">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19.3 7.2c1.5 0 2.8-.9 3.2-2.1.2-.7.3-1.5.3-2.2 0-.1 0-.2 0-.3 0-.8-.1-1.5-.3-2.2-.4-1.2-1.7-2.1-3.2-2.1h-.9c-.4 0-.8 0-1.1.1v7.4c.3.1.7.1 1.1.1h.9zM3.8 6.4c1.2 0 2.3-.5 3-.9V19c0 2.2-1.8 4-4 4s-4-1.8-4-4v-10c.7.4 1.8.9 3 .9 1.2 0 2.3-.5 3-.9v7.5c0 1.1.9 2 2 2s2-.9 2-2v-9.2z"/>
+                </svg>
+                TIKTOK
+            </a>
+            <a href="mailto:11.drip.eleven@gmail.com" class="connect-btn" aria-label="Send email">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                    <path d="M3 4h18c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke-linejoin="round"/>
+                    <path d="M21 6l-9 7-9-7" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                EMAIL
+            </a>
+        </div>
     </div>
 </section>
 
