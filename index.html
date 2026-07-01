@@ -32,19 +32,14 @@
 
         body {
             font-family: var(--font-body);
-            background:
-                radial-gradient(circle at 15% 5%, rgba(232,180,79,0.08), transparent 28rem),
-                linear-gradient(180deg, #090909 0%, #111 52%, #080808 100%);
+            background: radial-gradient(circle at 15% 5%, rgba(232,180,79,0.08), transparent 28rem), linear-gradient(180deg, #090909 0%, #111 52%, #080808 100%);
             color: var(--text);
             min-height: 100vh;
             font-size: 16px;
             line-height: 1.6;
-            letter-spacing: 0;
-            text-rendering: geometricPrecision;
         }
 
-        a { transition: color var(--transition), border-color var(--transition), background var(--transition), box-shadow var(--transition), transform var(--transition), opacity var(--transition); text-decoration: none; }
-
+        /* ===== HEADER ===== */
         .site-header {
             position: sticky;
             top: 0;
@@ -59,7 +54,7 @@
             gap: 1rem;
             background: transparent;
             backdrop-filter: blur(10px);
-            transition: height 0.35s ease, background 0.35s ease, box-shadow 0.35s ease, padding 0.35s ease;
+            transition: height 0.35s ease, background 0.35s ease, box-shadow 0.35s ease;
         }
 
         .site-header.scrolled {
@@ -100,16 +95,7 @@
             transition: transform 0.25s ease;
         }
 
-        .site-nav a:hover,
-        .site-nav a:focus-visible {
-            color: #FFFFFF;
-            outline: none;
-        }
-
-        .site-nav a:hover::after,
-        .site-nav a:focus-visible::after {
-            transform: scaleX(1);
-        }
+        .site-nav a:hover::after { transform: scaleX(1); }
 
         .nav-actions {
             display: flex;
@@ -129,12 +115,10 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .cart-link:hover,
-        .cart-link:focus-visible {
+        .cart-link:hover {
             color: #D4A017;
             background: rgba(212, 160, 23, 0.16);
             border-color: rgba(212, 160, 23, 0.3);
-            outline: none;
         }
 
         .nav-cta {
@@ -153,11 +137,9 @@
             white-space: nowrap;
         }
 
-        .nav-cta:hover,
-        .nav-cta:focus-visible {
+        .nav-cta:hover {
             transform: translateY(-1px);
             box-shadow: 0 12px 24px rgba(212, 160, 23, 0.24);
-            outline: none;
         }
 
         .menu-toggle {
@@ -171,15 +153,7 @@
             background: rgba(255, 255, 255, 0.06);
             color: #FFFFFF;
             cursor: pointer;
-            transition: border-color 0.25s ease, background 0.25s ease;
             position: relative;
-        }
-
-        .menu-toggle:hover,
-        .menu-toggle:focus-visible {
-            border-color: rgba(212, 160, 23, 0.4);
-            background: rgba(212, 160, 23, 0.14);
-            outline: none;
         }
 
         .menu-toggle span,
@@ -250,32 +224,24 @@
             transform: translateX(0);
         }
 
-        .logo,
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            color: var(--gold);
+            text-decoration: none;
+        }
+
         .logo-lockup {
             display: inline-flex;
             align-items: center;
+            gap: 0.65rem;
         }
-
-        .logo {
-            color: var(--gold);
-            text-decoration: none;
-            filter: drop-shadow(0 0 0 rgba(232,180,79,0));
-            transition: transform var(--transition), filter var(--transition);
-        }
-
-        .logo:hover {
-            transform: translateY(-2px);
-            filter: drop-shadow(0 0 14px rgba(232,180,79,0.36));
-        }
-
-        .logo-lockup { gap: 0.65rem; }
 
         .logo-mark {
             width: 2.05rem;
             height: 2.05rem;
             color: var(--gold);
             flex: 0 0 auto;
-            filter: drop-shadow(0 0 8px rgba(232,180,79,0.3));
         }
 
         .logo-wordmark {
@@ -285,46 +251,7 @@
             letter-spacing: 0.1em;
         }
 
-        .wa-btn,
-        .social-link,
-        .submit-btn,
-        .jersey-card {
-            transition: transform var(--transition), border-color var(--transition), background var(--transition), box-shadow var(--transition), color var(--transition), opacity var(--transition);
-        }
-
-        .wa-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.6rem;
-            background: rgba(37,211,102,0.13);
-            border: 1px solid rgba(37,211,102,0.55);
-            color: #DDFBE8;
-            text-decoration: none;
-            padding: 0.72rem 1.25rem;
-            font-family: var(--font-accent);
-            font-size: 0.74rem;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            line-height: 1;
-            text-transform: uppercase;
-            border-radius: 4px;
-        }
-
-        .wa-btn svg,
-        .social-link svg,
-        .trust-item svg {
-            width: 1rem;
-            height: 1rem;
-            flex: 0 0 auto;
-        }
-
-        .wa-btn:hover {
-            background: rgba(37,211,102,0.22);
-            border-color: var(--green);
-            transform: translateY(-2px);
-            box-shadow: 0 12px 28px rgba(37,211,102,0.14);
-        }
-
+        /* ===== HERO ===== */
         .hero {
             position: relative;
             min-height: 100vh;
@@ -348,21 +275,20 @@
             filter: saturate(0.95);
         }
 
-        .hero::before,
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.55);
+            z-index: -1;
+        }
+
         .hero::after {
             content: '';
             position: absolute;
             inset: 0;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .hero::before {
-            background: rgba(0, 0, 0, 0.55);
-        }
-
-        .hero::after {
             background: linear-gradient(180deg, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.28) 45%, rgba(0, 0, 0, 0.7) 100%);
+            z-index: -1;
         }
 
         .hero-content {
@@ -382,7 +308,6 @@
             font-weight: 800;
             letter-spacing: -0.03em;
             color: #FFFFFF;
-            text-transform: none;
         }
 
         .hero-copy {
@@ -415,14 +340,10 @@
             font-weight: 700;
             letter-spacing: 0.12em;
             text-transform: uppercase;
-            transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
         }
 
-        .hero-cta:hover,
-        .hero-cta:focus-visible {
-            transform: translateY(-2px);
-            outline: none;
-        }
+        .hero-cta:hover { transform: translateY(-2px); }
 
         .hero-cta--primary {
             background: #D4A017;
@@ -436,8 +357,7 @@
             background: transparent;
         }
 
-        .hero-cta--secondary:hover,
-        .hero-cta--secondary:focus-visible {
+        .hero-cta--secondary:hover {
             background: rgba(255, 255, 255, 0.12);
             border-color: #FFFFFF;
         }
@@ -454,17 +374,22 @@
             color: #FFFFFF;
             border: 1px solid rgba(255, 255, 255, 0.4);
             border-radius: 999px;
-            opacity: 1;
             animation: float 1.6s ease-in-out infinite, fadeOut 0.8s ease forwards;
             animation-delay: 0s, 2s;
             pointer-events: none;
         }
 
-        .hero-scroll svg {
-            width: 1rem;
-            height: 1rem;
+        @keyframes float {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(6px); }
         }
 
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+
+        /* ===== TRUST STRIP ===== */
         .trust-strip {
             background: #000000;
             border-top: 1px solid rgba(255, 255, 255, 0.08);
@@ -489,21 +414,14 @@
             text-align: center;
         }
 
-        .trust-strip__stars {
-            color: #D4A017;
-            letter-spacing: 0.16em;
-        }
+        .trust-strip__stars { color: #D4A017; letter-spacing: 0.16em; }
+        .trust-strip__divider { color: rgba(255, 255, 255, 0.5); }
 
-        .trust-strip__divider {
-            color: rgba(255, 255, 255, 0.5);
-        }
-
+        /* ===== SHOWCASE ===== */
         .showcase-section {
             padding: 5.2rem 5% 5.6rem;
             border-bottom: 1px solid rgba(232,180,79,0.18);
-            background:
-                linear-gradient(180deg, rgba(232,180,79,0.04), rgba(232,180,79,0.01) 26%, transparent 100%),
-                #0A0A0A;
+            background: linear-gradient(180deg, rgba(232,180,79,0.04), rgba(232,180,79,0.01) 26%, transparent 100%), #0A0A0A;
         }
 
         .showcase-heading {
@@ -607,7 +525,7 @@
             letter-spacing: 0.12em;
             text-transform: uppercase;
             white-space: nowrap;
-            transition: bottom 0.3s ease, transform 0.3s ease;
+            transition: bottom 0.3s ease;
         }
 
         .jersey-card:hover {
@@ -624,34 +542,7 @@
             bottom: 1.15rem;
         }
 
-        .trust-strip {
-            width: min(980px, 90%);
-            margin: 0 auto 2.4rem;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 0.7rem;
-        }
-
-        .trust-item {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.55rem;
-            border: 1px solid var(--border);
-            background: rgba(232,180,79,0.035);
-            color: rgba(244,240,232,0.78);
-            padding: 0.7rem 0.92rem;
-            border-radius: 4px;
-            font-family: var(--font-accent);
-            font-size: 0.68rem;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            line-height: 1.2;
-            text-transform: uppercase;
-        }
-
-        .trust-item svg { color: var(--gold); }
-
+        /* ===== CUSTOMIZER ===== */
         .customizer-section {
             padding: 5.2rem 5% 5.8rem;
             background: linear-gradient(180deg, #0b0b0b 0%, #111111 100%);
@@ -682,14 +573,16 @@
             border: 1px solid rgba(255,255,255,0.06);
             position: relative;
             aspect-ratio: 1.2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .customizer-visual__frame img {
-            display: block;
+        .customizer-visual__frame canvas {
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
+            display: block;
+            border-radius: 23px;
         }
 
         .customizer-view-toggle {
@@ -720,9 +613,7 @@
             border-color: #D4A017;
         }
 
-        .view-toggle:hover {
-            border-color: var(--gold);
-        }
+        .view-toggle:hover { border-color: var(--gold); }
 
         .customizer-hint {
             margin: 0;
@@ -743,7 +634,6 @@
             border: 1px solid rgba(255,255,255,0.08);
             box-shadow: 0 18px 50px rgba(0, 0, 0, 0.24);
             backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
         }
 
         .customizer-label {
@@ -779,8 +669,7 @@
             text-transform: uppercase;
         }
 
-        .customizer-field input[type="text"],
-        .customizer-field input[type="file"] {
+        .customizer-field input[type="text"] {
             width: 100%;
             padding: 0.9rem 1rem;
             border: 1px solid rgba(255,255,255,0.12);
@@ -796,29 +685,6 @@
             border-color: var(--gold);
             box-shadow: 0 0 0 3px rgba(212,160,23,0.1);
             outline: none;
-        }
-
-        .customizer-field input[type="file"] {
-            padding: 0.8rem 0.9rem;
-            cursor: pointer;
-        }
-
-        .customizer-field input[type="file"]::file-selector-button {
-            background: var(--gold);
-            color: #000000;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            font-weight: 700;
-            font-family: 'Inter', sans-serif;
-            cursor: pointer;
-            margin-right: 0.5rem;
-        }
-
-        .file-name {
-            color: rgba(255,255,255,0.6);
-            font-size: 0.85rem;
-            margin-top: 0.3rem;
         }
 
         .color-swatches {
@@ -839,9 +705,7 @@
             min-width: 32px;
         }
 
-        .swatch:hover {
-            transform: scale(1.1);
-        }
+        .swatch:hover { transform: scale(1.1); }
 
         .swatch.active {
             border-color: #D4A017;
@@ -870,9 +734,7 @@
             min-height: 44px;
         }
 
-        .font-pill:hover {
-            border-color: rgba(255,255,255,0.3);
-        }
+        .font-pill:hover { border-color: rgba(255,255,255,0.3); }
 
         .font-pill.active {
             background: rgba(212,160,23,0.16);
@@ -927,6 +789,7 @@
             box-shadow: 0 12px 24px rgba(212,160,23,0.24);
         }
 
+        /* ===== WHY SECTION ===== */
         .why-section {
             padding: 5.6rem 5% 6rem;
             background: #0A0A0A;
@@ -934,10 +797,7 @@
             border-bottom: 1px solid rgba(212, 160, 23, 0.12);
         }
 
-        .why-inner {
-            width: min(1180px, 100%);
-            margin: 0 auto;
-        }
+        .why-inner { width: min(1180px, 100%); margin: 0 auto; }
 
         .why-header {
             text-align: center;
@@ -987,10 +847,7 @@
             border-radius: 999px;
         }
 
-        .why-icon svg {
-            width: 1.15rem;
-            height: 1.15rem;
-        }
+        .why-icon svg { width: 1.15rem; height: 1.15rem; }
 
         .why-item h3 {
             margin: 0;
@@ -1009,16 +866,14 @@
             line-height: 1.7;
         }
 
+        /* ===== DRIP WALL ===== */
         .drip-wall {
             padding: 6.8rem 5% 7.4rem;
             background: linear-gradient(180deg, #060606 0%, #101010 46%, #060606 100%);
             overflow: hidden;
         }
 
-        .drip-wall-inner {
-            width: min(1180px, 100%);
-            margin: 0 auto;
-        }
+        .drip-wall-inner { width: min(1180px, 100%); margin: 0 auto; }
 
         .drip-wall-header {
             max-width: 760px;
@@ -1034,7 +889,6 @@
             line-height: 1.02;
             letter-spacing: 0.04em;
             color: #FFFFFF;
-            text-transform: none;
         }
 
         .drip-wall-subtext {
@@ -1059,38 +913,23 @@
             position: relative;
             overflow: hidden;
             aspect-ratio: 0.82;
-            min-height: 0;
             border-radius: 1.15rem;
             background: #0d0d0d;
             isolation: isolate;
             cursor: pointer;
         }
 
-        .drip-wall-card::before,
-        .drip-wall-card::after {
+        .drip-wall-card::before {
             content: '';
             position: absolute;
             inset: 0;
-            pointer-events: none;
-            z-index: 2;
-        }
-
-        .drip-wall-card::before {
             background: linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.42));
             opacity: 0;
             transition: opacity 0.35s ease;
+            z-index: 2;
         }
 
-        .drip-wall-card::after {
-            background: rgba(0,0,0,0.22);
-            opacity: 0;
-            transition: opacity 0.35s ease;
-        }
-
-        .drip-wall-card:hover::before,
-        .drip-wall-card:hover::after {
-            opacity: 1;
-        }
+        .drip-wall-card:hover::before { opacity: 1; }
 
         .drip-wall-media {
             position: absolute;
@@ -1144,6 +983,7 @@
             color: rgba(255,255,255,0.78);
         }
 
+        /* ===== ORDER SECTION ===== */
         .order-section {
             width: min(820px, 100%);
             margin: 0 auto;
@@ -1176,9 +1016,7 @@
             padding: clamp(1.25rem, 3vw, 2rem);
             border: 1px solid rgba(244,240,232,0.09);
             border-radius: 8px;
-            background:
-                linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.008)),
-                rgba(8,8,8,0.44);
+            background: linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.008)), rgba(8,8,8,0.44);
             box-shadow: 0 1.6rem 4.5rem rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.035);
         }
 
@@ -1211,7 +1049,6 @@
             font-size: 1rem;
             font-weight: 500;
             line-height: 1.45;
-            letter-spacing: 0;
             outline: none;
             transition: border-color var(--transition), box-shadow var(--transition), background var(--transition);
             appearance: none;
@@ -1224,15 +1061,6 @@
             border-color: var(--gold);
             background: #141414;
             box-shadow: 0 0 0 3px rgba(232,180,79,0.1), 0 0.9rem 2rem rgba(0,0,0,0.18);
-        }
-
-        a:focus-visible,
-        input:focus-visible,
-        select:focus-visible,
-        textarea:focus-visible,
-        button:focus-visible {
-            outline: 2px solid var(--gold);
-            outline-offset: 3px;
         }
 
         .order-section select {
@@ -1253,20 +1081,12 @@
             gap: 1.7rem;
         }
 
-        .order-summary,
-        .payment-card,
-        .success-box {
-            border-radius: 8px;
-            box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
-        }
-
         .order-summary {
-            background:
-                linear-gradient(180deg, rgba(232,180,79,0.08), rgba(232,180,79,0.026)),
-                rgba(9,9,9,0.9);
+            background: linear-gradient(180deg, rgba(232,180,79,0.08), rgba(232,180,79,0.026)), rgba(9,9,9,0.9);
             border: 1px solid rgba(232,180,79,0.3);
             padding: 1.85rem;
             margin: 0.35rem 0 2.35rem;
+            border-radius: 8px;
             font-family: var(--font-body);
         }
 
@@ -1275,7 +1095,6 @@
             font-size: 0.78rem;
             font-weight: 700;
             letter-spacing: 0.14em;
-            line-height: 1.35;
             color: var(--gold);
             margin-bottom: 1.25rem;
             text-transform: uppercase;
@@ -1290,14 +1109,11 @@
             font-family: var(--font-body);
             font-size: 0.92rem;
             font-weight: 500;
-            line-height: 1.45;
             color: var(--muted);
             border-bottom: 1px solid rgba(244,240,232,0.055);
         }
 
-        .summary-row:last-child {
-            border-bottom: 0;
-        }
+        .summary-row:last-child { border-bottom: 0; }
 
         .summary-row span:last-child {
             text-align: right;
@@ -1310,7 +1126,6 @@
             margin-top: 1rem;
             padding-top: 1.1rem;
             color: var(--text);
-            font-family: var(--font-commerce);
             font-size: 1.36rem;
             font-weight: 600;
             letter-spacing: 0.06em;
@@ -1320,13 +1135,11 @@
         .summary-row.total span:last-child { color: var(--gold); font-weight: 600; }
 
         .payment-card {
-            background:
-                radial-gradient(circle at top right, rgba(232,180,79,0.16), transparent 15rem),
-                linear-gradient(145deg, rgba(232,180,79,0.1), rgba(255,255,255,0.02)),
-                rgba(8,8,8,0.92);
+            background: radial-gradient(circle at top right, rgba(232,180,79,0.16), transparent 15rem), linear-gradient(145deg, rgba(232,180,79,0.1), rgba(255,255,255,0.02)), rgba(8,8,8,0.92);
             border: 1px solid rgba(232,180,79,0.5);
             padding: 2rem;
             margin-bottom: 2.35rem;
+            border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 1.7rem 4rem rgba(0,0,0,0.34), inset 0 1px 0 rgba(255,255,255,0.07);
         }
@@ -1346,7 +1159,6 @@
             font-size: 0.8rem;
             font-weight: 700;
             letter-spacing: 0.14em;
-            line-height: 1.45;
             text-transform: uppercase;
             margin-bottom: 1.65rem;
         }
@@ -1359,7 +1171,6 @@
         }
 
         .payment-detail {
-            min-width: 0;
             padding: 1.15rem;
             border: 1px solid rgba(244,240,232,0.1);
             background: rgba(0,0,0,0.28);
@@ -1373,20 +1184,16 @@
             font-size: 0.68rem;
             font-weight: 700;
             letter-spacing: 0.12em;
-            line-height: 1.35;
-            margin-bottom: 0.42rem;
             text-transform: uppercase;
+            margin-bottom: 0.42rem;
         }
 
         .payment-value {
             display: block;
-            max-width: 100%;
             color: var(--text);
-            font-family: var(--font-commerce);
             font-size: 1.08rem;
             font-weight: 600;
             letter-spacing: 0.045em;
-            line-height: 1.35;
             overflow-wrap: anywhere;
         }
 
@@ -1407,9 +1214,8 @@
             font-size: 0.72rem;
             font-weight: 700;
             letter-spacing: 0.14em;
-            line-height: 1.35;
-            margin-bottom: 0.55rem;
             text-transform: uppercase;
+            margin-bottom: 0.55rem;
         }
 
         .payment-step-copy,
@@ -1428,52 +1234,11 @@
             font-weight: 700;
             letter-spacing: 0.08em;
             text-transform: uppercase;
-            overflow-wrap: anywhere;
         }
 
         .payment-flow span {
             color: var(--gold);
             padding: 0 0.28rem;
-        }
-
-        .payment-amount {
-            font-family: var(--font-commerce);
-            font-size: 1.5rem;
-            font-weight: 600;
-            letter-spacing: 0.04em;
-            line-height: 1.1;
-            color: var(--gold);
-        }
-
-        .payment-note {
-            margin-top: 1.5rem;
-            padding: 1rem;
-            background: rgba(37,211,102,0.08);
-            border: 1px solid rgba(37,211,102,0.55);
-            border-radius: 4px;
-            font-family: var(--font-body);
-            font-size: 0.88rem;
-            line-height: 1.7;
-            color: var(--muted);
-        }
-
-        .payment-note strong {
-            color: #BDF7CF;
-            font-family: var(--font-commerce);
-            font-weight: 600;
-            letter-spacing: 0.03em;
-        }
-
-        .payment-note a {
-            color: #BDF7CF;
-            text-decoration: none;
-            font-weight: 700;
-        }
-
-        .payment-note a:hover,
-        .success-link:hover {
-            color: var(--green);
-            text-shadow: 0 0 16px rgba(37,211,102,0.25);
         }
 
         .submit-btn {
@@ -1488,8 +1253,6 @@
             letter-spacing: 0.09em;
             line-height: 1;
             cursor: pointer;
-            position: relative;
-            overflow: hidden;
             transition: all 0.3s ease;
             min-height: 60px;
         }
@@ -1513,29 +1276,40 @@
             padding: 2.5rem;
             text-align: center;
             margin-bottom: 2rem;
+            border-radius: 8px;
         }
 
         .success-box.show { display: block; }
-        .success-box h3 { font-family: var(--font-display); font-size: 1.8rem; letter-spacing: 0.06em; line-height: 1.1; color: #BDF7CF; margin-bottom: 1rem; }
-        .success-box p { color: var(--muted); font-family: var(--font-body); font-weight: 500; line-height: 1.8; }
+        .success-box h3 {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            letter-spacing: 0.06em;
+            color: #BDF7CF;
+            margin-bottom: 1rem;
+        }
+        .success-box p {
+            color: var(--muted);
+            font-family: var(--font-body);
+            font-weight: 500;
+            line-height: 1.8;
+        }
         .success-box a { color: #BDF7CF; text-decoration: none; }
         .success-kicker { color: var(--gold); }
-        .success-amount, .success-account { font-family: var(--font-commerce); font-weight: 600; letter-spacing: 0.03em; color: var(--text); }
-        .success-amount { font-size: 1.1rem; color: var(--gold); }
-        .success-link { color: #BDF7CF; font-weight: 700; }
+        .success-amount {
+            font-weight: 600;
+            color: var(--gold);
+            font-size: 1.1rem;
+        }
 
+        /* ===== PRE-ORDER ===== */
         .preorder-section {
             padding: 6rem 5% 6.4rem;
             border-top: 1px solid rgba(232,180,79,0.16);
             border-bottom: 1px solid rgba(232,180,79,0.16);
-            background:
-                linear-gradient(180deg, #080808 0%, #101010 48%, #080808 100%);
+            background: linear-gradient(180deg, #080808 0%, #101010 48%, #080808 100%);
         }
 
-        .preorder-inner {
-            width: min(1120px, 100%);
-            margin: 0 auto;
-        }
+        .preorder-inner { width: min(1120px, 100%); margin: 0 auto; }
 
         .preorder-header {
             max-width: 700px;
@@ -1570,13 +1344,10 @@
         }
 
         .timeline-card,
-        .benefits-card,
-        .preorder-video-card {
+        .benefits-card {
             border: 1px solid rgba(244,240,232,0.11);
             border-radius: 8px;
-            background:
-                linear-gradient(180deg, rgba(255,255,255,0.026), rgba(255,255,255,0.008)),
-                rgba(9,9,9,0.88);
+            background: linear-gradient(180deg, rgba(255,255,255,0.026), rgba(255,255,255,0.008)), rgba(9,9,9,0.88);
             box-shadow: 0 1.4rem 3.4rem rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.045);
         }
 
@@ -1589,14 +1360,11 @@
         }
 
         .timeline-label,
-        .benefits-label,
-        .preorder-gallery-title,
-        .placeholder-label {
+        .benefits-label {
             font-family: var(--font-accent);
             font-size: 0.72rem;
             font-weight: 700;
             letter-spacing: 0.14em;
-            line-height: 1.35;
             color: var(--gold);
             text-transform: uppercase;
         }
@@ -1620,9 +1388,7 @@
             line-height: 1.7;
         }
 
-        .benefits-card {
-            padding: 2rem;
-        }
+        .benefits-card { padding: 2rem; }
 
         .benefits-list {
             display: grid;
@@ -1657,8 +1423,14 @@
             box-shadow: 0 0 1rem rgba(232,180,79,0.32);
         }
 
-        .preorder-archive {
-            margin-top: 0.2rem;
+        .preorder-gallery-title {
+            font-family: var(--font-accent);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            color: var(--gold);
+            text-transform: uppercase;
+            text-align: center;
         }
 
         .preorder-archive-header {
@@ -1676,10 +1448,6 @@
             line-height: 1.75;
         }
 
-        .preorder-gallery-title {
-            text-align: center;
-        }
-
         .preorder-video-grid {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1695,7 +1463,7 @@
             background: rgba(7,7,7,0.92);
             box-shadow: 0 1.3rem 3.2rem rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.05);
             isolation: isolate;
-            transition: transform 0.7s cubic-bezier(0.2, 0.72, 0.22, 1), border-color 0.7s ease, box-shadow 0.7s ease;
+            transition: transform 0.7s ease, border-color 0.7s ease, box-shadow 0.7s ease;
         }
 
         .preorder-video-card.featured {
@@ -1723,7 +1491,7 @@
             background: #040404;
             filter: saturate(0.84) contrast(1.08) brightness(0.94);
             transform: scale(1.01);
-            transition: transform 1s cubic-bezier(0.2, 0.72, 0.22, 1), filter 1s ease;
+            transition: transform 1s ease, filter 1s ease;
         }
 
         .preorder-video-card:hover {
@@ -1749,6 +1517,7 @@
             font-size: 0.9rem;
             flex-direction: column;
             gap: 0.5rem;
+            z-index: 0;
         }
 
         .video-fallback svg {
@@ -1757,45 +1526,15 @@
             color: var(--gold);
         }
 
-        @media (max-width: 860px) {
-            .preorder-video-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-
-            .preorder-video-card.featured {
-                min-height: 24rem;
-            }
-
-            .preorder-video-card:not(.featured) {
-                min-height: 14rem;
-            }
-        }
-
-        @media (max-width: 640px) {
-            .preorder-video-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .preorder-video-card,
-            .preorder-video-card.featured {
-                grid-column: auto;
-                min-height: 18rem;
-            }
-        }
-
+        /* ===== SOCIALS ===== */
         .socials-bar {
-            background:
-                radial-gradient(circle at center top, rgba(232,180,79,0.08), transparent 19rem),
-                #080808;
+            background: radial-gradient(circle at center top, rgba(232,180,79,0.08), transparent 19rem), #080808;
             border-top: 1px solid var(--border);
             padding: 4.5rem 5%;
             text-align: center;
         }
 
-        .socials-content {
-            width: min(980px, 100%);
-            margin: 0 auto;
-        }
+        .socials-content { width: min(980px, 100%); margin: 0 auto; }
 
         .socials-title {
             font-family: var(--font-display);
@@ -1840,16 +1579,13 @@
             font-size: 0.78rem;
             font-weight: 700;
             letter-spacing: 0.08em;
-            line-height: 1.3;
             font-family: var(--font-accent);
             text-transform: uppercase;
             cursor: pointer;
-            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), border-color 0.4s ease, background 0.4s ease, box-shadow 0.4s ease;
+            transition: all 0.4s ease;
             flex: 1;
             min-width: 160px;
             max-width: 180px;
-            position: relative;
-            overflow: hidden;
             min-height: 48px;
         }
 
@@ -1860,63 +1596,16 @@
             transition: color 0.4s ease;
         }
 
-        .connect-btn::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at 30% 30%, rgba(232,180,79,0.06), transparent 40%);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            pointer-events: none;
-            z-index: 0;
-        }
-
         .connect-btn:hover {
             transform: translateY(-4px);
             border-color: var(--gold);
             background: rgba(10,10,10,0.7);
-            box-shadow: 0 12px 28px rgba(232,180,79,0.12), inset 0 0 1px rgba(232,180,79,0.1);
+            box-shadow: 0 12px 28px rgba(232,180,79,0.12);
         }
 
-        .connect-btn:hover::before {
-            opacity: 1;
-        }
+        .connect-btn:hover svg { color: var(--gold); }
 
-        .connect-btn:hover svg {
-            color: var(--gold);
-        }
-
-        .connect-btn:focus-visible {
-            outline: 2px solid var(--gold);
-            outline-offset: 3px;
-        }
-
-        @media (max-width: 600px) {
-            .connect-buttons {
-                gap: 1rem;
-                flex-direction: column;
-            }
-
-            .connect-btn {
-                width: 100%;
-                max-width: none;
-                min-width: auto;
-            }
-
-            .socials-bar {
-                padding: 3.5rem 5%;
-            }
-
-            .socials-title {
-                font-size: 1.6rem;
-            }
-
-            .socials-sub {
-                font-size: 0.8rem;
-                margin-bottom: 2.2rem;
-            }
-        }
-
+        /* ===== FOOTER ===== */
         footer {
             background: #050505;
             padding: 3rem 5% 1.4rem;
@@ -1924,10 +1613,7 @@
             color: var(--text);
         }
 
-        .footer-inner {
-            width: min(1180px, 100%);
-            margin: 0 auto;
-        }
+        .footer-inner { width: min(1180px, 100%); margin: 0 auto; }
 
         .footer-grid {
             display: grid;
@@ -1954,10 +1640,7 @@
             text-decoration: none;
         }
 
-        .footer-logo svg {
-            width: 1.4rem;
-            height: 1.4rem;
-        }
+        .footer-logo svg { width: 1.4rem; height: 1.4rem; }
 
         .footer-tagline {
             max-width: 17rem;
@@ -1982,7 +1665,7 @@
             border: 1px solid rgba(244,240,232,0.14);
             border-radius: 999px;
             color: var(--text);
-            transition: border-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+            transition: all 0.3s ease;
             min-height: 34px;
             min-width: 34px;
         }
@@ -1993,10 +1676,7 @@
             transform: translateY(-2px);
         }
 
-        .footer-socials svg {
-            width: 0.95rem;
-            height: 0.95rem;
-        }
+        .footer-socials svg { width: 0.95rem; height: 0.95rem; }
 
         .footer-column h4 {
             margin: 0 0 0.9rem;
@@ -2021,62 +1701,7 @@
             transition: color 0.3s ease;
         }
 
-        .footer-links a:hover {
-            color: var(--gold);
-        }
-
-        .footer-newsletter p {
-            color: rgba(244,240,232,0.72);
-            font-family: var(--font-body);
-            font-size: 0.92rem;
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-form {
-            display: flex;
-            gap: 0.7rem;
-            flex-wrap: wrap;
-        }
-
-        .footer-form input {
-            flex: 1 1 180px;
-            min-width: 0;
-            background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(244,240,232,0.12);
-            border-radius: 999px;
-            color: var(--text);
-            padding: 0.82rem 0.95rem;
-            font-family: var(--font-body);
-            font-size: 0.92rem;
-            outline: none;
-            min-height: 48px;
-        }
-
-        .footer-form input:focus {
-            border-color: var(--gold);
-            box-shadow: 0 0 0 3px rgba(232,180,79,0.12);
-        }
-
-        .footer-form button {
-            border: none;
-            border-radius: 999px;
-            background: var(--gold);
-            color: #080808;
-            padding: 0.82rem 1.2rem;
-            font-family: var(--font-accent);
-            font-size: 0.8rem;
-            font-weight: 700;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            min-height: 48px;
-        }
-
-        .footer-form button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 22px rgba(232,180,79,0.2);
-        }
+        .footer-links a:hover { color: var(--gold); }
 
         .footer-bottom {
             padding-top: 1rem;
@@ -2100,6 +1725,8 @@
             vertical-align: middle;
             margin-right: 8px;
         }
+
+        @keyframes spin { to { transform: rotate(360deg); } }
 
         .toast {
             position: fixed;
@@ -2130,38 +1757,12 @@
             background: rgba(37,211,102,0.12);
         }
 
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(14px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateX(-50%) translateY(0); }
-            50% { transform: translateX(-50%) translateY(6px); }
-        }
-
-        @keyframes fadeOut {
-            from { opacity: 1; }
-            to { opacity: 0; }
-        }
-
-        @keyframes spin { to { transform: rotate(360deg); } }
-
         @media (prefers-reduced-motion: reduce) {
-            *,
-            *::before,
-            *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                scroll-behavior: auto !important;
-                transition-duration: 0.01ms !important;
-            }
+            * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
         }
 
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 1024px) {
-            header {
-                grid-template-columns: 1fr auto auto;
-            }
             .site-nav {
                 position: absolute;
                 top: calc(100% + 0.6rem);
@@ -2173,7 +1774,7 @@
                 padding: 0.55rem;
                 border-radius: 8px;
                 background: rgba(8,8,8,0.94);
-                border-color: rgba(232,180,79,0.26);
+                border: 1px solid rgba(232,180,79,0.26);
                 box-shadow: 0 1.5rem 3rem rgba(0,0,0,0.42);
                 backdrop-filter: blur(20px);
                 opacity: 0;
@@ -2181,7 +1782,7 @@
                 transform: translateY(-0.65rem);
                 transition: opacity var(--transition), visibility var(--transition), transform var(--transition);
             }
-            header.nav-open .site-nav {
+            .site-header.nav-open .site-nav {
                 opacity: 1;
                 visibility: visible;
                 transform: translateY(0);
@@ -2191,33 +1792,16 @@
                 border-radius: 4px;
                 text-align: center;
             }
-            .menu-toggle {
-                display: inline-flex;
-                position: relative;
-            }
-            .showcase-grid {
-                grid-template-columns: repeat(3, minmax(0, 1fr));
-                gap: 1.2rem;
-            }
-            .drip-wall-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-                gap: 1.6rem;
-            }
-            .customizer-inner {
-                grid-template-columns: 1fr;
-            }
-            .customizer-visual__frame {
-                aspect-ratio: 1.4;
-            }
+            .menu-toggle { display: inline-flex; }
+            .showcase-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+            .drip-wall-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .customizer-inner { grid-template-columns: 1fr; }
+            .customizer-visual__frame { aspect-ratio: 1.4; }
         }
 
         @media (max-width: 900px) {
-            .footer-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-            .why-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
+            .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .why-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
         }
 
         @media (max-width: 768px) {
@@ -2229,171 +1813,70 @@
                 scroll-snap-type: x mandatory;
                 -webkit-overflow-scrolling: touch;
             }
-            .showcase-grid::-webkit-scrollbar {
-                height: 6px;
-            }
-            .showcase-grid::-webkit-scrollbar-thumb {
-                background: rgba(212, 160, 23, 0.45);
-                border-radius: 999px;
-            }
             .jersey-card {
                 flex: 0 0 min(78vw, 19rem);
                 aspect-ratio: 0.8;
                 scroll-snap-align: start;
             }
-            .jersey-card-copy {
-                padding: 1.1rem 1rem 1rem;
-            }
-            .drip-wall {
-                padding: 4.8rem 5% 5.2rem;
-            }
-            .drip-wall-header {
-                margin-bottom: 2.6rem;
-            }
-            .drip-wall-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 1.4rem;
-            }
-            .drip-wall-card {
-                aspect-ratio: 0.82;
-                min-height: 16rem;
-            }
-            .customizer-inner {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            .customizer-panel {
-                padding: 1.2rem;
-            }
-            .customizer-panel h2 {
-                font-size: 1.8rem;
-            }
-            .why-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-                gap: 1rem;
-            }
-            .why-item {
-                padding: 1rem 0;
-            }
+            .drip-wall { padding: 4.8rem 5% 5.2rem; }
+            .drip-wall-grid { grid-template-columns: 1fr 1fr; gap: 1.4rem; }
+            .drip-wall-card { aspect-ratio: 0.82; min-height: 16rem; }
+            .customizer-panel { padding: 1.2rem; }
+            .customizer-panel h2 { font-size: 1.8rem; }
+            .why-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+            .why-item { padding: 1rem 0; }
         }
 
         @media (max-width: 600px) {
             .form-row { grid-template-columns: 1fr; }
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 1.6rem;
-            }
-            .footer-brand {
-                gap: 0.7rem;
-            }
-            .footer-form {
-                flex-direction: column;
-            }
-            .footer-form button {
-                width: 100%;
-            }
-            header { padding: 0.95rem 5%; }
-            .logo-wordmark { font-size: 1.72rem; letter-spacing: 0.08em; }
-            .logo-mark { width: 1.8rem; height: 1.8rem; }
-            .wa-btn { padding: 0.72rem; }
-            .wa-btn span.label { display: none; }
-            .hero {
-                min-height: 100vh;
-                min-height: 100svh;
-                padding: 5.4rem 5% 4.2rem;
-            }
-            .hero-content {
-                gap: 0.9rem;
-            }
-            .hero h1 {
-                font-size: clamp(2.6rem, 10vw, 3.4rem);
-            }
-            .hero-copy {
-                font-size: 0.95rem;
-            }
-            .hero-actions {
-                flex-direction: column;
-                width: 100%;
-                max-width: 20rem;
-            }
-            .hero-cta {
-                width: 100%;
-            }
-            .trust-strip {
-                padding: 0.9rem 1rem;
-            }
-            .trust-strip__inner {
-                font-size: 0.72rem;
-                gap: 0.45rem 0.65rem;
-            }
+            .footer-grid { grid-template-columns: 1fr; gap: 1.6rem; }
+            .hero { padding: 5.4rem 5% 4.2rem; }
+            .hero h1 { font-size: clamp(2.6rem, 10vw, 3.4rem); }
+            .hero-actions { flex-direction: column; width: 100%; max-width: 20rem; }
+            .hero-cta { width: 100%; }
             .showcase-section { padding: 3.1rem 5% 3.4rem; }
             .customizer-section { padding: 3.7rem 5% 4.1rem; }
-            .customizer-inner { grid-template-columns: 1fr; gap: 1.3rem; }
-            .customizer-panel { padding: 1.2rem; }
-            .customizer-panel h2 { font-size: 1.8rem; }
-            .customizer-visual__frame {
-                aspect-ratio: 1.1;
-            }
+            .customizer-visual__frame { aspect-ratio: 1.1; }
             .why-section { padding: 4.2rem 5% 4.6rem; }
             .why-grid { grid-template-columns: 1fr 1fr; gap: 0.8rem; }
             .why-item { padding: 0.8rem 0; }
             .drip-wall { padding: 4rem 5% 4.3rem; }
-            .drip-wall-subtext { font-size: 0.82rem; }
             .drip-wall-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
             .drip-wall-card { min-height: 18rem; aspect-ratio: 0.75; }
-            .jersey-card { aspect-ratio: 0.75; }
-            .sport-name { font-size: 2rem; }
-            .jersey-card-copy { padding: 1.65rem 1.35rem 1.9rem; }
             .order-section { padding: 4.2rem 5% 4.6rem; }
             #orderForm { padding: 1rem; }
-            .form-group { margin-bottom: 1.45rem; }
-            .trust-strip { width: 100%; justify-content: stretch; }
-            .trust-item { width: 100%; justify-content: center; }
             .section-title { font-size: 2.25rem; }
-            .section-sub { font-size: 0.8rem; letter-spacing: 0.04em; margin-bottom: 2rem; }
-            .order-section input,
-            .order-section select,
-            .order-section textarea { font-size: 1rem; padding: 1rem; }
-            .payment-row, .summary-row { align-items: flex-start; }
-            .summary-row span:last-child { max-width: 52%; overflow-wrap: anywhere; }
             .payment-details { grid-template-columns: 1fr; }
-            .order-summary,
-            .payment-card { padding: 1.25rem; }
-            .payment-flow { font-size: 0.7rem; line-height: 1.8; }
+            .order-summary, .payment-card { padding: 1.25rem; }
             .submit-btn { font-size: 1.35rem; }
             .preorder-section { padding: 4.4rem 5% 4.8rem; }
-            .preorder-header { margin-bottom: 2.5rem; }
             .preorder-panel { grid-template-columns: 1fr; gap: 1.1rem; margin-bottom: 3rem; }
-            .timeline-card,
-            .benefits-card { padding: 1.35rem; }
             .benefits-list { grid-template-columns: 1fr; }
-            .preorder-placeholder-grid { grid-template-columns: 1fr; gap: 1rem; }
-            .preorder-placeholder { min-height: 13rem; }
-            .drip-wall-grid {
-                grid-template-columns: 1fr 1fr;
+            .preorder-video-grid { grid-template-columns: 1fr; }
+            .preorder-video-card, .preorder-video-card.featured {
+                grid-column: auto;
+                min-height: 18rem;
             }
+            .connect-buttons { flex-direction: column; }
+            .connect-btn { width: 100%; max-width: none; min-width: auto; }
+            .socials-bar { padding: 3.5rem 5%; }
+            .socials-title { font-size: 1.6rem; }
         }
 
         @media (max-width: 420px) {
-            .drip-wall-grid {
-                grid-template-columns: 1fr;
-            }
-            .drip-wall-card {
-                aspect-ratio: 0.82;
-                min-height: 20rem;
-            }
-            .why-grid {
-                grid-template-columns: 1fr;
-            }
+            .drip-wall-grid { grid-template-columns: 1fr; }
+            .drip-wall-card { aspect-ratio: 0.82; min-height: 20rem; }
+            .why-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
+<!-- ===== HEADER ===== -->
 <header class="site-header" id="siteHeader">
     <a href="#" class="logo" aria-label="DRIP XI home">
         <span class="logo-lockup">
-            <svg class="logo-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+            <svg class="logo-mark" viewBox="0 0 48 48" aria-hidden="true">
                 <path d="M8 31 L14 16 L24 28 L34 16 L40 31" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
                 <path d="M10 34 H38" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
                 <path d="M15 38 H33" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
@@ -2412,7 +1895,7 @@
 
     <div class="nav-actions">
         <a href="#" class="cart-link" aria-label="View cart">
-            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <svg viewBox="0 0 24 24" aria-hidden="true" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="9" cy="20" r="1"></circle>
                 <circle cx="18" cy="20" r="1"></circle>
                 <path d="M3 4h2l2.4 10.2a1 1 0 0 0 1 .8h8.7a1 1 0 0 0 1-.8L17 8H7"></path>
@@ -2434,6 +1917,7 @@
     </div>
 </header>
 
+<!-- ===== HERO ===== -->
 <section class="hero" aria-label="Drip XI hero">
     <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=1400&q=80">
         <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
@@ -2454,6 +1938,7 @@
     </div>
 </section>
 
+<!-- ===== TRUST STRIP ===== -->
 <section class="trust-strip" aria-label="Customer trust highlights">
     <div class="trust-strip__inner">
         <span class="trust-strip__stars">★★★★★</span>
@@ -2465,6 +1950,7 @@
     </div>
 </section>
 
+<!-- ===== SHOWCASE ===== -->
 <section class="showcase-section" id="collections" aria-label="Premium jersey showcase">
     <div class="showcase-heading">
         <span class="showcase-label">THIS SEASON</span>
@@ -2497,17 +1983,18 @@
     </div>
 </section>
 
+<!-- ===== CUSTOMIZER ===== -->
 <section class="customizer-section" id="customize" aria-labelledby="customizerTitle">
     <div class="customizer-inner">
         <div class="customizer-visual">
-            <div class="customizer-visual__frame" id="jerseyPreview">
-                <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=900&q=80" alt="Premium custom jersey mockup" loading="lazy" id="previewImage">
+            <div class="customizer-visual__frame">
+                <canvas id="jerseyCanvas" width="600" height="500"></canvas>
             </div>
             <div class="customizer-view-toggle" role="group" aria-label="Jersey view selector">
                 <button type="button" class="view-toggle active" data-view="front">Front</button>
                 <button type="button" class="view-toggle" data-view="back">Back</button>
             </div>
-            <p class="customizer-hint">Click to preview different views</p>
+            <p class="customizer-hint">⬅️ Changes update live →</p>
         </div>
 
         <div class="customizer-panel" aria-label="Customize your jersey">
@@ -2517,48 +2004,45 @@
             <label class="customizer-field">
                 <span>Jersey Color</span>
                 <div class="color-swatches" aria-label="Jersey color options">
-                    <button type="button" class="swatch active" style="--swatch-color:#000000" data-color="#000000" aria-label="Black"></button>
-                    <button type="button" class="swatch" style="--swatch-color:#1A1A1A" data-color="#1A1A1A" aria-label="Soft black"></button>
+                    <button type="button" class="swatch active" style="--swatch-color:#1a1a2e" data-color="#1a1a2e" aria-label="Navy"></button>
+                    <button type="button" class="swatch" style="--swatch-color:#000000" data-color="#000000" aria-label="Black"></button>
                     <button type="button" class="swatch" style="--swatch-color:#D4A017" data-color="#D4A017" aria-label="Gold"></button>
-                    <button type="button" class="swatch" style="--swatch-color:#FFFFFF" data-color="#FFFFFF" aria-label="White"></button>
                     <button type="button" class="swatch" style="--swatch-color:#8B0000" data-color="#8B0000" aria-label="Maroon"></button>
-                    <button type="button" class="swatch" style="--swatch-color:#1a237e" data-color="#1a237e" aria-label="Navy"></button>
+                    <button type="button" class="swatch" style="--swatch-color:#1a237e" data-color="#1a237e" aria-label="Royal Blue"></button>
+                    <button type="button" class="swatch" style="--swatch-color:#2e7d32" data-color="#2e7d32" aria-label="Forest Green"></button>
+                    <button type="button" class="swatch" style="--swatch-color:#b71c1c" data-color="#b71c1c" aria-label="Red"></button>
+                    <button type="button" class="swatch" style="--swatch-color:#FFFFFF" data-color="#FFFFFF" aria-label="White"></button>
                 </div>
             </label>
 
             <label class="customizer-field">
                 <span>Your Name</span>
-                <input type="text" placeholder="e.g. DRIP KING" id="customizerName">
+                <input type="text" placeholder="e.g. DRIP KING" id="customizerName" value="YOUR NAME">
             </label>
 
             <label class="customizer-field">
                 <span>Your Number</span>
-                <input type="text" placeholder="e.g. 11" id="customizerNumber" inputmode="numeric" pattern="[0-9]{1,3}">
-            </label>
-
-            <label class="customizer-field">
-                <span>Upload Your Logo</span>
-                <input type="file" accept="image/*" id="logoUpload">
-                <div class="file-name" id="fileName"></div>
+                <input type="text" placeholder="e.g. 11" id="customizerNumber" value="99" inputmode="numeric" pattern="[0-9]{1,3}">
             </label>
 
             <div class="customizer-field">
                 <span>Choose Font Style</span>
                 <div class="font-row">
-                    <button type="button" class="font-pill active" data-font="Satoshi">Satoshi</button>
-                    <button type="button" class="font-pill" data-font="Inter">Inter</button>
-                    <button type="button" class="font-pill" data-font="Bebas">Bebas</button>
+                    <button type="button" class="font-pill active" data-font="bold">Bold</button>
+                    <button type="button" class="font-pill" data-font="italic">Italic</button>
+                    <button type="button" class="font-pill" data-font="serif">Serif</button>
                 </div>
             </div>
 
             <div class="customizer-actions">
-                <button type="button" class="customizer-btn customizer-btn--ghost" id="saveDesignBtn">Save My Design</button>
+                <button type="button" class="customizer-btn customizer-btn--ghost" id="saveDesignBtn">💾 Save Design</button>
                 <a href="#order-now" class="customizer-btn customizer-btn--solid">Order Now</a>
             </div>
         </div>
     </div>
 </section>
 
+<!-- ===== WHY SECTION ===== -->
 <section class="why-section" aria-labelledby="whyTitle">
     <div class="why-inner">
         <div class="why-header">
@@ -2568,42 +2052,28 @@
         <div class="why-grid">
             <article class="why-item">
                 <div class="why-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 3l7 4v5c0 4.2-2.7 7.7-7 9-4.3-1.3-7-4.8-7-9V7l7-4z"></path>
-                    </svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l7 4v5c0 4.2-2.7 7.7-7 9-4.3-1.3-7-4.8-7-9V7l7-4z"></path></svg>
                 </div>
                 <h3>Premium Fabric Technology</h3>
                 <p>High-performance materials built to last.</p>
             </article>
             <article class="why-item">
                 <div class="why-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="3" y="5" width="18" height="14" rx="2"></rect>
-                        <path d="M3 10h18"></path>
-                        <path d="M8 15h3"></path>
-                    </svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 10h18"></path><path d="M8 15h3"></path></svg>
                 </div>
                 <h3>7-Day Production</h3>
                 <p>Custom orders ready and shipped in 7 days.</p>
             </article>
             <article class="why-item">
                 <div class="why-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="8"></circle>
-                        <path d="M12 7v5l3 2"></path>
-                    </svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="8"></circle><path d="M12 7v5l3 2"></path></svg>
                 </div>
                 <h3>Worldwide Delivery</h3>
-                <p>We ship to athletes and football lovers everywhere.</p>
+                <p>We ship to athletes everywhere.</p>
             </article>
             <article class="why-item">
                 <div class="why-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M5 7h14"></path>
-                        <path d="M7 7v10"></path>
-                        <path d="M17 7v10"></path>
-                        <path d="M9 17h6"></path>
-                    </svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 7h14"></path><path d="M7 7v10"></path><path d="M17 7v10"></path><path d="M9 17h6"></path></svg>
                 </div>
                 <h3>Team Bulk Orders</h3>
                 <p>Full kit options with bulk pricing.</p>
@@ -2612,6 +2082,7 @@
     </div>
 </section>
 
+<!-- ===== DRIP WALL ===== -->
 <section class="drip-wall" id="teams" aria-labelledby="dripWallTitle">
     <div class="drip-wall-inner">
         <div class="drip-wall-header">
@@ -2620,42 +2091,42 @@
         </div>
         <div class="drip-wall-grid">
             <article class="drip-wall-card">
-                <img class="drip-wall-media" src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&w=600&h=800&q=80" alt="DRIP XI customer wearing a custom football kit" loading="lazy" onerror="this.style.display='none'">
+                <img class="drip-wall-media" src="assets/gallery/customer-1.webp" alt="DRIP XI customer wearing a custom football kit" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&w=600&h=800&q=80'">
                 <div class="drip-wall-overlay">
                     <span class="drip-wall-name">Adewale K.</span>
                     <span class="drip-wall-sport">Football</span>
                 </div>
             </article>
             <article class="drip-wall-card">
-                <img class="drip-wall-media" src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=600&h=800&q=80" alt="DRIP XI customer styled in a custom jersey" loading="lazy" onerror="this.style.display='none'">
+                <img class="drip-wall-media" src="assets/gallery/customer-2.webp" alt="DRIP XI customer styled in a custom jersey" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=600&h=800&q=80'">
                 <div class="drip-wall-overlay">
                     <span class="drip-wall-name">Tolu M.</span>
                     <span class="drip-wall-sport">Basketball</span>
                 </div>
             </article>
             <article class="drip-wall-card">
-                <img class="drip-wall-media" src="https://images.unsplash.com/photo-1550330861-3a6df3b49d79?auto=format&fit=crop&w=600&h=800&q=80" alt="DRIP XI customer in a premium custom jersey" loading="lazy" onerror="this.style.display='none'">
+                <img class="drip-wall-media" src="assets/gallery/customer-3.webp" alt="DRIP XI customer in a premium custom jersey" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1550330861-3a6df3b49d79?auto=format&fit=crop&w=600&h=800&q=80'">
                 <div class="drip-wall-overlay">
                     <span class="drip-wall-name">Musa D.</span>
                     <span class="drip-wall-sport">Baseball</span>
                 </div>
             </article>
             <article class="drip-wall-card">
-                <img class="drip-wall-media" src="https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=600&h=800&q=80" alt="DRIP XI customer showing off a custom kit" loading="lazy" onerror="this.style.display='none'">
+                <img class="drip-wall-media" src="assets/gallery/customer-4.webp" alt="DRIP XI customer showing off a custom kit" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=600&h=800&q=80'">
                 <div class="drip-wall-overlay">
                     <span class="drip-wall-name">Kemi A.</span>
                     <span class="drip-wall-sport">Training</span>
                 </div>
             </article>
             <article class="drip-wall-card">
-                <img class="drip-wall-media" src="https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=600&h=800&q=80" alt="DRIP XI customer in a bold custom jersey" loading="lazy" onerror="this.style.display='none'">
+                <img class="drip-wall-media" src="assets/gallery/customer-5.webp" alt="DRIP XI customer in a bold custom jersey" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=600&h=800&q=80'">
                 <div class="drip-wall-overlay">
                     <span class="drip-wall-name">Bayo R.</span>
                     <span class="drip-wall-sport">Football</span>
                 </div>
             </article>
             <article class="drip-wall-card">
-                <img class="drip-wall-media" src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=600&h=800&q=80" alt="DRIP XI customer in a custom sports outfit" loading="lazy" onerror="this.style.display='none'">
+                <img class="drip-wall-media" src="assets/gallery/customer-6.webp" alt="DRIP XI customer in a custom sports outfit" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=600&h=800&q=80'">
                 <div class="drip-wall-overlay">
                     <span class="drip-wall-name">Seyi O.</span>
                     <span class="drip-wall-sport">Lifestyle</span>
@@ -2665,22 +2136,23 @@
     </div>
 </section>
 
+<!-- ===== ORDER SECTION ===== -->
 <section class="order-section" id="order-now">
     <div class="trust-strip" aria-label="Order trust signals">
         <div class="trust-item">
-            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3l7 3v5c0 4.6-2.8 8-7 10-4.2-2-7-5.4-7-10V6l7-3z" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M9 13l2 2 4-4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true" width="16" height="16"><path d="M12 3l7 3v5c0 4.6-2.8 8-7 10-4.2-2-7-5.4-7-10V6l7-3z" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M9 13l2 2 4-4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
             VERIFIED QUALITY
         </div>
         <div class="trust-item">
-            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 4h12l-2 16H8L6 4z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M10 8h4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M9 12h6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M9 16h6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true" width="16" height="16"><path d="M6 4h12l-2 16H8L6 4z" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M10 8h4" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M9 12h6" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M9 16h6" fill="none" stroke="currentColor" stroke-width="1.7"/></svg>
             CUSTOM NAME &amp; NUMBER
         </div>
         <div class="trust-item">
-            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 18l.8-3A7 7 0 1 1 9 18.4L5 18z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><circle cx="9" cy="9" r="2.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M14 14h3" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true" width="16" height="16"><path d="M5 18l.8-3A7 7 0 1 1 9 18.4L5 18z" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="9" cy="9" r="2.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M14 14h3" fill="none" stroke="currentColor" stroke-width="1.7"/></svg>
             WHATSAPP SUPPORT
         </div>
         <div class="trust-item">
-            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 7h11v10H3zM14 10h3l4 4v3h-7z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><circle cx="8.5" cy="12" r="1.5" fill="currentColor"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true" width="16" height="16"><path d="M3 7h11v10H3zM14 10h3l4 4v3h-7z" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="8.5" cy="12" r="1.5" fill="currentColor"/></svg>
             FAST DELIVERY
         </div>
     </div>
@@ -2750,7 +2222,6 @@
             </select>
         </div>
 
-        <!-- Team/Club Selection (appears dynamically based on jersey type) -->
         <div class="form-group" id="teamSection" hidden>
             <label id="teamLabel" for="teamClub">SELECT TEAM/CLUB *</label>
             <select id="teamClub">
@@ -2781,56 +2252,23 @@
 
         <div class="order-summary">
             <div class="summary-label">ORDER SUMMARY</div>
-            <div class="summary-row">
-                <span>Jersey Type</span>
-                <span id="summaryJerseyType">Not selected</span>
-            </div>
-            <div class="summary-row">
-                <span>Team/Club</span>
-                <span id="summaryTeam">Not selected</span>
-            </div>
-            <div class="summary-row">
-                <span>Jersey Version</span>
-                <span id="summaryVersion">Not selected</span>
-            </div>
-            <div class="summary-row">
-                <span>Size</span>
-                <span id="summarySize">Large</span>
-            </div>
-            <div class="summary-row">
-                <span>Quantity</span>
-                <span id="summaryQuantity">1</span>
-            </div>
-            <div class="summary-row">
-                <span>Unit Price</span>
-                <span id="summaryPrice">₦30,000</span>
-            </div>
-            <div class="summary-row total">
-                <span>TOTAL COST</span>
-                <span id="summaryTotal">₦30,000</span>
-            </div>
+            <div class="summary-row"><span>Jersey Type</span><span id="summaryJerseyType">Not selected</span></div>
+            <div class="summary-row"><span>Team/Club</span><span id="summaryTeam">Not selected</span></div>
+            <div class="summary-row"><span>Jersey Version</span><span id="summaryVersion">Not selected</span></div>
+            <div class="summary-row"><span>Size</span><span id="summarySize">Large</span></div>
+            <div class="summary-row"><span>Quantity</span><span id="summaryQuantity">1</span></div>
+            <div class="summary-row"><span>Unit Price</span><span id="summaryPrice">₦30,000</span></div>
+            <div class="summary-row total"><span>TOTAL COST</span><span id="summaryTotal">₦30,000</span></div>
         </div>
 
         <div class="payment-card">
             <div class="payment-title">PAYMENT METHOD</div>
             <div class="payment-method">DIRECT BANK TRANSFER</div>
             <div class="payment-details">
-                <div class="payment-detail">
-                    <span class="payment-label">ACCOUNT NAME</span>
-                    <span class="payment-value">BOLUWATIFE EBENEZER</span>
-                </div>
-                <div class="payment-detail">
-                    <span class="payment-label">BANK</span>
-                    <span class="payment-value">OPAY</span>
-                </div>
-                <div class="payment-detail">
-                    <span class="payment-label">ACCOUNT NUMBER</span>
-                    <span class="payment-value">9033932478</span>
-                </div>
-                <div class="payment-detail">
-                    <span class="payment-label">AMOUNT</span>
-                    <span class="payment-value important" id="paymentAmount">₦30,000</span>
-                </div>
+                <div class="payment-detail"><span class="payment-label">ACCOUNT NAME</span><span class="payment-value">BOLUWATIFE EBENEZER</span></div>
+                <div class="payment-detail"><span class="payment-label">BANK</span><span class="payment-value">OPAY</span></div>
+                <div class="payment-detail"><span class="payment-label">ACCOUNT NUMBER</span><span class="payment-value">9033932478</span></div>
+                <div class="payment-detail"><span class="payment-label">AMOUNT</span><span class="payment-value important" id="paymentAmount">₦30,000</span></div>
             </div>
             <div class="payment-step">
                 <div class="payment-step-title">AFTER PAYMENT</div>
@@ -2846,13 +2284,13 @@
     </form>
 </section>
 
+<!-- ===== PRE-ORDER ===== -->
 <section class="preorder-section" aria-labelledby="preorderTitle">
     <div class="preorder-inner">
         <div class="preorder-header">
             <h2 class="preorder-title" id="preorderTitle">PRE-ORDER PROGRAM</h2>
             <p class="preorder-subtitle">Reserve upcoming jersey releases before they officially arrive.</p>
         </div>
-
         <div class="preorder-panel">
             <div class="timeline-card">
                 <div class="timeline-label">Production Timeline</div>
@@ -2869,145 +2307,94 @@
                 </ul>
             </div>
         </div>
-
         <div class="preorder-archive">
             <div class="preorder-archive-header">
-                <div class="preorder-gallery-title" id="preorderGalleryTitle">PRE-ORDER ARCHIVE</div>
+                <div class="preorder-gallery-title">PRE-ORDER ARCHIVE</div>
                 <p class="preorder-archive-subtitle">Real deliveries from previous customer pre-orders. Every jersey is sourced, customized and quality checked before dispatch.</p>
             </div>
-            <div class="preorder-gallery" aria-labelledby="preorderGalleryTitle">
-                <div class="preorder-video-grid">
-                    <article class="preorder-video-card featured">
-                        <div class="video-fallback">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M10 8l6 4-6 4V8z"/></svg>
-                            <span>Pre-order delivery video</span>
-                        </div>
-                        <video class="preorder-video-media" preload="metadata" playsinline aria-label="Fulfilled pre-order delivery video" controls>
-                            <source src="#" type="video/mp4">
-                        </video>
-                    </article>
-                    <article class="preorder-video-card">
-                        <div class="video-fallback">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M10 8l6 4-6 4V8z"/></svg>
-                            <span>Pre-order delivery video</span>
-                        </div>
-                        <video class="preorder-video-media" preload="metadata" playsinline aria-label="Fulfilled pre-order delivery video" controls>
-                            <source src="#" type="video/mp4">
-                        </video>
-                    </article>
-                    <article class="preorder-video-card">
-                        <div class="video-fallback">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M10 8l6 4-6 4V8z"/></svg>
-                            <span>Pre-order delivery video</span>
-                        </div>
-                        <video class="preorder-video-media" preload="metadata" playsinline aria-label="Fulfilled pre-order delivery video" controls>
-                            <source src="#" type="video/mp4">
-                        </video>
-                    </article>
-                </div>
+            <div class="preorder-video-grid">
+                <article class="preorder-video-card featured">
+                    <video class="preorder-video-media" src="assets/gallery/preorder-video-1.mp4" controls preload="metadata" playsinline aria-label="Fulfilled pre-order delivery video"></video>
+                    <div class="video-fallback">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M10 8l6 4-6 4V8z"/></svg>
+                        <span>Pre-order delivery video</span>
+                    </div>
+                </article>
+                <article class="preorder-video-card">
+                    <video class="preorder-video-media" src="assets/gallery/preorder-video-2.mp4" controls preload="metadata" playsinline aria-label="Fulfilled pre-order delivery video"></video>
+                    <div class="video-fallback">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M10 8l6 4-6 4V8z"/></svg>
+                        <span>Pre-order delivery video</span>
+                    </div>
+                </article>
+                <article class="preorder-video-card">
+                    <video class="preorder-video-media" src="assets/gallery/preorder-video-3.mp4" controls preload="metadata" playsinline aria-label="Fulfilled pre-order delivery video"></video>
+                    <div class="video-fallback">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M10 8l6 4-6 4V8z"/></svg>
+                        <span>Pre-order delivery video</span>
+                    </div>
+                </article>
             </div>
         </div>
     </div>
 </section>
 
+<!-- ===== SOCIALS ===== -->
 <section class="socials-bar">
     <div class="socials-content">
         <div class="socials-title">CONNECT WITH US</div>
         <div class="socials-sub">FOLLOW • CHAT • COLLABORATE</div>
         <div class="connect-buttons" aria-label="Connect with DRIP XI">
             <a href="https://wa.me/2347069533486?text=Hi%20DRIP%20XI%2C%20I%20want%20to%20order%20a%20custom%20jersey" target="_blank" rel="noopener noreferrer" class="connect-btn" aria-label="Connect on WhatsApp">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-                    <path d="M4.8 19.2l1-3.7A7.5 7.5 0 1 1 9 18.7l-4.2.5z" stroke-linejoin="round"/>
-                    <path d="M9.5 8.4c.2-.4.4-.4.7-.4h.5c.2 0 .4.1.5.4l.7 1.5c.1.3.1.5-.1.7l-.4.5c.7 1.1 1.5 1.9 2.7 2.5l.5-.6c.2-.2.4-.3.7-.2l1.6.7c.3.1.4.3.4.6v.4c0 .4-.2.7-.5.9-.8.4-2.3.1-4-.9-1.9-1.1-3.1-2.2-3.9-4.1" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4.8 19.2l1-3.7A7.5 7.5 0 1 1 9 18.7l-4.2.5z"/><path d="M9.5 8.4c.2-.4.4-.4.7-.4h.5c.2 0 .4.1.5.4l.7 1.5c.1.3.1.5-.1.7l-.4.5c.7 1.1 1.5 1.9 2.7 2.5l.5-.6c.2-.2.4-.3.7-.2l1.6.7c.3.1.4.3.4.6v.4c0 .4-.2.7-.5.9-.8.4-2.3.1-4-.9-1.9-1.1-3.1-2.2-3.9-4.1"/></svg>
                 WHATSAPP
             </a>
             <a href="https://www.tiktok.com/@drip.xi_" target="_blank" rel="noopener noreferrer" class="connect-btn" aria-label="Connect on TikTok">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M19.3 7.2c1.5 0 2.8-.9 3.2-2.1.2-.7.3-1.5.3-2.2 0-.1 0-.2 0-.3 0-.8-.1-1.5-.3-2.2-.4-1.2-1.7-2.1-3.2-2.1h-.9c-.4 0-.8 0-1.1.1v7.4c.3.1.7.1 1.1.1h.9zM3.8 6.4c1.2 0 2.3-.5 3-.9V19c0 2.2-1.8 4-4 4s-4-1.8-4-4v-10c.7.4 1.8.9 3 .9 1.2 0 2.3-.5 3-.9v7.5c0 1.1.9 2 2 2s2-.9 2-2v-9.2z"/>
-                </svg>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.3 7.2c1.5 0 2.8-.9 3.2-2.1.2-.7.3-1.5.3-2.2 0-.1 0-.2 0-.3 0-.8-.1-1.5-.3-2.2-.4-1.2-1.7-2.1-3.2-2.1h-.9c-.4 0-.8 0-1.1.1v7.4c.3.1.7.1 1.1.1h.9zM3.8 6.4c1.2 0 2.3-.5 3-.9V19c0 2.2-1.8 4-4 4s-4-1.8-4-4v-10c.7.4 1.8.9 3 .9 1.2 0 2.3-.5 3-.9v7.5c0 1.1.9 2 2 2s2-.9 2-2v-9.2z"/></svg>
                 TIKTOK
             </a>
             <a href="mailto:11.drip.eleven@gmail.com" class="connect-btn" aria-label="Send email">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-                    <path d="M3 4h18c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke-linejoin="round"/>
-                    <path d="M21 6l-9 7-9-7" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 4h18c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M21 6l-9 7-9-7"/></svg>
                 EMAIL
             </a>
         </div>
     </div>
 </section>
 
+<!-- ===== FOOTER ===== -->
 <footer id="about">
     <div class="footer-inner">
         <div class="footer-grid">
             <div class="footer-brand">
                 <a href="#" class="footer-logo" aria-label="DRIP XI home">
-                    <svg viewBox="0 0 48 48" aria-hidden="true" focusable="false">
-                        <path d="M8 31 L14 16 L24 28 L34 16 L40 31" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
-                        <path d="M10 34 H38" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
-                        <path d="M15 38 H33" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
-                        <path d="M24 11 V28" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/>
-                    </svg>
+                    <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 31 L14 16 L24 28 L34 16 L40 31" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M10 34 H38" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M15 38 H33" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M24 11 V28" fill="none" stroke="currentColor" stroke-width="2.1"/></svg>
                     <span>Drip XI</span>
                 </a>
                 <p class="footer-tagline">Wear Your Identity.</p>
                 <div class="footer-socials" aria-label="Social links">
-                    <a href="https://www.instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1"></circle></svg>
-                    </a>
-                    <a href="https://www.tiktok.com" target="_blank" rel="noreferrer" aria-label="TikTok">
-                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 3h2.2a4.8 4.8 0 0 0 4.8 4.8v2.4a7.2 7.2 0 0 1-4.8-1.6v7.3a5.2 5.2 0 1 1-5.2-5.2c.3 0 .6 0 .9.1v2.4c-.3-.1-.6-.1-.9-.1a2.8 2.8 0 1 0 2.8 2.8V3Z"></path></svg>
-                    </a>
-                    <a href="https://twitter.com" target="_blank" rel="noreferrer" aria-label="X">
-                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-6.8 7.8L23.4 22h-5.8l-4.5-5.9L7.7 22H4.6l7.2-8.2L.6 2h5.9l4.1 5.4L18.9 2Z"></path></svg>
-                    </a>
+                    <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+                    <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 3h2.2a4.8 4.8 0 0 0 4.8 4.8v2.4a7.2 7.2 0 0 1-4.8-1.6v7.3a5.2 5.2 0 1 1-5.2-5.2c.3 0 .6 0 .9.1v2.4c-.3-.1-.6-.1-.9-.1a2.8 2.8 0 1 0 2.8 2.8V3Z"/></svg></a>
+                    <a href="#" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-6.8 7.8L23.4 22h-5.8l-4.5-5.9L7.7 22H4.6l7.2-8.2L.6 2h5.9l4.1 5.4L18.9 2Z"/></svg></a>
                 </div>
             </div>
-
             <div class="footer-column">
                 <h4>Shop</h4>
-                <div class="footer-links">
-                    <a href="#collections">Collections</a>
-                    <a href="#customize">Customize</a>
-                    <a href="#teams">Teams</a>
-                    <a href="#">Sale</a>
-                </div>
+                <div class="footer-links"><a href="#collections">Collections</a><a href="#customize">Customize</a><a href="#teams">Teams</a><a href="#">Sale</a></div>
             </div>
-
             <div class="footer-column">
                 <h4>Support</h4>
-                <div class="footer-links">
-                    <a href="#">FAQ</a>
-                    <a href="#">Size Guide</a>
-                    <a href="#">Contact</a>
-                    <a href="#">Returns</a>
-                </div>
-            </div>
-
-            <div class="footer-column footer-newsletter">
-                <h4>Newsletter</h4>
-                <p>Get early access to new drops.</p>
-                <form class="footer-form" id="newsletterForm">
-                    <input type="email" placeholder="Email address" aria-label="Email address" id="newsletterEmail" required>
-                    <button type="submit">Join</button>
-                </form>
+                <div class="footer-links"><a href="#">FAQ</a><a href="#">Size Guide</a><a href="#">Contact</a><a href="#">Returns</a></div>
             </div>
         </div>
-
-        <div class="footer-bottom">
-            <p>&copy; 2025 DRIP XI. All rights reserved.</p>
-        </div>
+        <div class="footer-bottom"><p>&copy; 2025 DRIP XI. All rights reserved.</p></div>
     </div>
 </footer>
 
-<!-- Toast Notification -->
 <div class="toast" id="toast"></div>
 
 <script>
     // ============================================================
-    // 1. NAVIGATION
+    // NAVIGATION
     // ============================================================
     const siteHeader = document.getElementById("siteHeader");
     const menuToggle = document.querySelector(".menu-toggle");
@@ -3038,26 +2425,21 @@
 
     menuToggle.addEventListener("click", () => {
         const isOpen = siteHeader.classList.contains("nav-open");
-        if (isOpen) {
-            closeNavigation();
-        } else {
-            openNavigation();
-        }
+        if (isOpen) closeNavigation();
+        else openNavigation();
     });
 
     mobileBackdrop.addEventListener("click", closeNavigation);
-    [...siteNav.querySelectorAll("a"), ...mobileNavPanel.querySelectorAll("a")].forEach((link) => {
+    [...siteNav.querySelectorAll("a"), ...mobileNavPanel.querySelectorAll("a")].forEach(link => {
         link.addEventListener("click", closeNavigation);
     });
 
     window.addEventListener("resize", () => {
-        if (window.innerWidth > 900) {
-            closeNavigation();
-        }
+        if (window.innerWidth > 900) closeNavigation();
     });
 
     // ============================================================
-    // 2. TOAST NOTIFICATION
+    // TOAST
     // ============================================================
     function showToast(message, type = 'info') {
         const toast = document.getElementById('toast');
@@ -3066,149 +2448,308 @@
         if (type === 'success') toast.classList.add('success');
         toast.classList.add('show');
         clearTimeout(toast._timeout);
-        toast._timeout = setTimeout(() => {
-            toast.classList.remove('show');
-        }, 4000);
+        toast._timeout = setTimeout(() => toast.classList.remove('show'), 4000);
     }
 
     // ============================================================
-    // 3. CUSTOMIZER INTERACTIVITY
+    // JERSEY CANVAS CUSTOMIZER - FULLY INTERACTIVE!
     // ============================================================
-    // View toggle
-    const viewToggles = document.querySelectorAll('.view-toggle');
-    const previewImage = document.getElementById('previewImage');
-    const frontImage = 'https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=900&q=80';
-    const backImage = 'https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=900&q=80';
+    const canvas = document.getElementById('jerseyCanvas');
+    const ctx = canvas.getContext('2d');
 
-    viewToggles.forEach(btn => {
-        btn.addEventListener('click', function() {
-            viewToggles.forEach(b => b.classList.remove('active'));
+    let jerseyColor = '#1a1a2e';
+    let playerName = 'YOUR NAME';
+    let playerNumber = '99';
+    let fontStyle = 'bold';
+    let view = 'front';
+
+    // Jersey template drawing function
+    function drawJersey() {
+        const w = canvas.width;
+        const h = canvas.height;
+
+        // Clear
+        ctx.clearRect(0, 0, w, h);
+
+        // --- Jersey Body ---
+        const bodyColor = jerseyColor;
+
+        // Main jersey shape (simplified football jersey)
+        ctx.beginPath();
+        ctx.moveTo(w * 0.25, 0);
+        ctx.quadraticCurveTo(w * 0.15, h * 0.05, w * 0.08, h * 0.15);
+        ctx.quadraticCurveTo(w * 0.04, h * 0.3, w * 0.02, h * 0.45);
+        ctx.quadraticCurveTo(w * 0.0, h * 0.6, w * 0.03, h * 0.72);
+        ctx.quadraticCurveTo(w * 0.06, h * 0.85, w * 0.12, h * 0.92);
+        ctx.quadraticCurveTo(w * 0.18, h * 0.98, w * 0.25, h * 0.98);
+        ctx.lineTo(w * 0.75, h * 0.98);
+        ctx.quadraticCurveTo(w * 0.82, h * 0.98, w * 0.88, h * 0.92);
+        ctx.quadraticCurveTo(w * 0.94, h * 0.85, w * 0.97, h * 0.72);
+        ctx.quadraticCurveTo(w * 1.0, h * 0.6, w * 0.98, h * 0.45);
+        ctx.quadraticCurveTo(w * 0.96, h * 0.3, w * 0.92, h * 0.15);
+        ctx.quadraticCurveTo(w * 0.85, h * 0.05, w * 0.75, 0);
+        ctx.closePath();
+
+        // Fill with jersey color
+        ctx.fillStyle = bodyColor;
+        ctx.fill();
+
+        // Jersey outline
+        ctx.strokeStyle = 'rgba(255,255,255,0.15)';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        // --- Collar ---
+        ctx.beginPath();
+        ctx.moveTo(w * 0.35, 0);
+        ctx.quadraticCurveTo(w * 0.5, h * 0.08, w * 0.65, 0);
+        ctx.strokeStyle = 'rgba(255,255,255,0.2)';
+        ctx.lineWidth = 3;
+        ctx.stroke();
+
+        // --- Sleeves ---
+        ctx.beginPath();
+        ctx.moveTo(w * 0.08, h * 0.15);
+        ctx.quadraticCurveTo(w * 0.02, h * 0.22, w * 0.0, h * 0.32);
+        ctx.quadraticCurveTo(w * 0.0, h * 0.38, w * 0.04, h * 0.38);
+        ctx.quadraticCurveTo(w * 0.06, h * 0.3, w * 0.1, h * 0.22);
+        ctx.closePath();
+        ctx.fillStyle = bodyColor;
+        ctx.fill();
+        ctx.strokeStyle = 'rgba(255,255,255,0.1)';
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+
+        // Right sleeve
+        ctx.beginPath();
+        ctx.moveTo(w * 0.92, h * 0.15);
+        ctx.quadraticCurveTo(w * 0.98, h * 0.22, w * 1.0, h * 0.32);
+        ctx.quadraticCurveTo(w * 1.0, h * 0.38, w * 0.96, h * 0.38);
+        ctx.quadraticCurveTo(w * 0.94, h * 0.3, w * 0.9, h * 0.22);
+        ctx.closePath();
+        ctx.fillStyle = bodyColor;
+        ctx.fill();
+        ctx.stroke();
+
+        // --- Stripe details (side panels) ---
+        ctx.beginPath();
+        ctx.moveTo(w * 0.12, h * 0.35);
+        ctx.lineTo(w * 0.1, h * 0.7);
+        ctx.strokeStyle = 'rgba(255,255,255,0.08)';
+        ctx.lineWidth = 12;
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(w * 0.88, h * 0.35);
+        ctx.lineTo(w * 0.9, h * 0.7);
+        ctx.stroke();
+
+        // --- Number (large, centered) ---
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+
+        // Number shadow
+        ctx.shadowColor = 'rgba(0,0,0,0.3)';
+        ctx.shadowBlur = 8;
+        ctx.shadowOffsetX = 2;
+        ctx.shadowOffsetY = 2;
+
+        // Number font
+        let numberFontSize = view === 'front' ? 140 : 120;
+        ctx.font = `${fontStyle === 'bold' ? 'bold' : fontStyle === 'italic' ? 'italic' : 'normal'} ${numberFontSize}px "Arial Black", "Impact", sans-serif`;
+
+        // Number color (white with gold outline for dark colors, dark for light colors)
+        const isLightColor = isLight(jerseyColor);
+        ctx.fillStyle = isLightColor ? '#1a1a2e' : '#FFFFFF';
+        ctx.shadowColor = 'rgba(0,0,0,0.4)';
+        ctx.shadowBlur = 12;
+        ctx.fillText(playerNumber, w * 0.5, h * 0.48);
+
+        // Number outline
+        ctx.shadowBlur = 0;
+        ctx.strokeStyle = isLightColor ? 'rgba(0,0,0,0.3)' : 'rgba(255,255,255,0.3)';
+        ctx.lineWidth = 3;
+        ctx.strokeText(playerNumber, w * 0.5, h * 0.48);
+
+        // --- Name (on top) ---
+        ctx.shadowColor = 'rgba(0,0,0,0.3)';
+        ctx.shadowBlur = 6;
+        ctx.shadowOffsetX = 1;
+        ctx.shadowOffsetY = 1;
+
+        let nameFontSize = view === 'front' ? 42 : 36;
+        ctx.font = `${fontStyle === 'bold' ? 'bold' : fontStyle === 'italic' ? 'italic' : 'normal'} ${nameFontSize}px "Arial Black", "Impact", sans-serif`;
+        ctx.fillStyle = isLightColor ? '#1a1a2e' : '#FFFFFF';
+        ctx.fillText(playerName, w * 0.5, h * 0.18);
+
+        // Name outline
+        ctx.shadowBlur = 0;
+        ctx.strokeStyle = isLightColor ? 'rgba(0,0,0,0.2)' : 'rgba(255,255,255,0.2)';
+        ctx.lineWidth = 2;
+        ctx.strokeText(playerName, w * 0.5, h * 0.18);
+
+        // --- Brand badge (top right) ---
+        ctx.shadowBlur = 4;
+        ctx.shadowColor = 'rgba(0,0,0,0.2)';
+        ctx.font = '18px "Arial", sans-serif';
+        ctx.fillStyle = isLightColor ? 'rgba(0,0,0,0.4)' : 'rgba(255,255,255,0.3)';
+        ctx.textAlign = 'right';
+        ctx.textBaseline = 'top';
+        ctx.fillText('DRIP XI', w * 0.92, h * 0.04);
+
+        // --- Back view indicator ---
+        if (view === 'back') {
+            ctx.shadowBlur = 0;
+            ctx.font = '16px "Inter", sans-serif';
+            ctx.fillStyle = 'rgba(255,255,255,0.25)';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'bottom';
+            ctx.fillText('← BACK VIEW →', w * 0.5, h * 0.97);
+        }
+
+        // Reset shadow
+        ctx.shadowBlur = 0;
+        ctx.shadowOffsetX = 0;
+        ctx.shadowOffsetY = 0;
+    }
+
+    // Helper: check if color is light
+    function isLight(hex) {
+        const r = parseInt(hex.slice(1, 3), 16);
+        const g = parseInt(hex.slice(3, 5), 16);
+        const b = parseInt(hex.slice(5, 7), 16);
+        const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+        return brightness > 140;
+    }
+
+    // Update jersey on any change
+    function updateJersey() {
+        drawJersey();
+        // Save design state
+        try {
+            localStorage.setItem('dripxi_customizer', JSON.stringify({
+                color: jerseyColor,
+                name: playerName,
+                number: playerNumber,
+                font: fontStyle,
+                view: view
+            }));
+        } catch (e) {}
+    }
+
+    // ============================================================
+    // CUSTOMIZER EVENT LISTENERS
+    // ============================================================
+
+    // Color swatches
+    document.querySelectorAll('.swatch').forEach(swatch => {
+        swatch.addEventListener('click', function() {
+            document.querySelectorAll('.swatch').forEach(s => s.classList.remove('active'));
             this.classList.add('active');
-            const view = this.dataset.view;
-            previewImage.src = view === 'front' ? frontImage : backImage;
+            jerseyColor = this.dataset.color;
+            updateJersey();
         });
     });
 
-    // Color swatches
-    const swatches = document.querySelectorAll('.swatch');
-    swatches.forEach(swatch => {
-        swatch.addEventListener('click', function() {
-            swatches.forEach(s => s.classList.remove('active'));
-            this.classList.add('active');
-            const color = this.dataset.color;
-            // Visual feedback - change border of preview frame
-            const frame = document.querySelector('.customizer-visual__frame');
-            frame.style.borderColor = color === '#FFFFFF' ? 'rgba(255,255,255,0.3)' : color;
-            frame.style.boxShadow = `0 20px 54px rgba(0,0,0,0.28), 0 0 0 2px ${color}22`;
-        });
+    // Name input
+    document.getElementById('customizerName').addEventListener('input', function() {
+        playerName = this.value || 'YOUR NAME';
+        updateJersey();
+    });
+
+    // Number input
+    document.getElementById('customizerNumber').addEventListener('input', function() {
+        playerNumber = this.value || '99';
+        updateJersey();
     });
 
     // Font pills
-    const fontPills = document.querySelectorAll('.font-pill');
-    fontPills.forEach(pill => {
+    document.querySelectorAll('.font-pill').forEach(pill => {
         pill.addEventListener('click', function() {
-            fontPills.forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.font-pill').forEach(p => p.classList.remove('active'));
             this.classList.add('active');
-            const font = this.dataset.font;
-            // Apply font to preview text (simulated)
-            document.querySelector('.customizer-panel h2').style.fontFamily = font + ', sans-serif';
+            fontStyle = this.dataset.font;
+            updateJersey();
         });
     });
 
-    // File upload
-    const logoUpload = document.getElementById('logoUpload');
-    const fileName = document.getElementById('fileName');
-    logoUpload.addEventListener('change', function() {
-        if (this.files && this.files[0]) {
-            fileName.textContent = '📎 ' + this.files[0].name;
-            showToast('Logo uploaded: ' + this.files[0].name, 'success');
-        } else {
-            fileName.textContent = '';
-        }
+    // View toggle
+    document.querySelectorAll('.view-toggle').forEach(btn => {
+        btn.addEventListener('click', function() {
+            document.querySelectorAll('.view-toggle').forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            view = this.dataset.view;
+            updateJersey();
+        });
     });
 
-    // Customizer name/number - live preview
-    const customizerName = document.getElementById('customizerName');
-    const customizerNumber = document.getElementById('customizerNumber');
-    customizerName.addEventListener('input', function() {
-        // Simulate name on jersey - just visual feedback
-        if (this.value.length > 0) {
-            document.querySelector('.customizer-panel h2').style.opacity = '0.7';
-            setTimeout(() => {
-                document.querySelector('.customizer-panel h2').style.opacity = '1';
-            }, 200);
-        }
-    });
-
-    // Save Design button
+    // Save design
     document.getElementById('saveDesignBtn').addEventListener('click', function() {
-        const name = customizerName.value || 'Unnamed';
-        const number = customizerNumber.value || 'No number';
-        const color = document.querySelector('.swatch.active')?.dataset?.color || 'Black';
-        const font = document.querySelector('.font-pill.active')?.dataset?.font || 'Satoshi';
-
-        const designData = {
-            name: name,
-            number: number,
-            color: color,
-            font: font,
-            savedAt: new Date().toISOString()
-        };
-
         try {
-            localStorage.setItem('dripxi_design', JSON.stringify(designData));
+            localStorage.setItem('dripxi_customizer', JSON.stringify({
+                color: jerseyColor,
+                name: playerName,
+                number: playerNumber,
+                font: fontStyle,
+                view: view
+            }));
             showToast('✅ Design saved successfully!', 'success');
         } catch (e) {
-            showToast('Could not save design. Please try again.', 'info');
-        }
-    });
-
-    // Load saved design on page load
-    window.addEventListener('DOMContentLoaded', function() {
-        try {
-            const saved = localStorage.getItem('dripxi_design');
-            if (saved) {
-                const data = JSON.parse(saved);
-                if (data.name && document.getElementById('customizerName')) {
-                    document.getElementById('customizerName').value = data.name;
-                }
-                if (data.number && document.getElementById('customizerNumber')) {
-                    document.getElementById('customizerNumber').value = data.number;
-                }
-                // Highlight saved color
-                if (data.color) {
-                    swatches.forEach(s => {
-                        if (s.dataset.color === data.color) {
-                            s.click();
-                        }
-                    });
-                }
-                // Highlight saved font
-                if (data.font) {
-                    fontPills.forEach(p => {
-                        if (p.dataset.font === data.font) {
-                            p.click();
-                        }
-                    });
-                }
-                if (data.name || data.number) {
-                    showToast('🔄 Loaded your saved design', 'info');
-                }
-            }
-        } catch (e) {
-            // Silent fail
+            showToast('Could not save design.', 'info');
         }
     });
 
     // ============================================================
-    // 4. ORDER FORM
+    // LOAD SAVED DESIGN
+    // ============================================================
+    function loadSavedDesign() {
+        try {
+            const saved = localStorage.getItem('dripxi_customizer');
+            if (saved) {
+                const data = JSON.parse(saved);
+                if (data.color) {
+                    jerseyColor = data.color;
+                    document.querySelectorAll('.swatch').forEach(s => {
+                        s.classList.toggle('active', s.dataset.color === data.color);
+                    });
+                }
+                if (data.name) {
+                    playerName = data.name;
+                    document.getElementById('customizerName').value = data.name;
+                }
+                if (data.number) {
+                    playerNumber = data.number;
+                    document.getElementById('customizerNumber').value = data.number;
+                }
+                if (data.font) {
+                    fontStyle = data.font;
+                    document.querySelectorAll('.font-pill').forEach(p => {
+                        p.classList.toggle('active', p.dataset.font === data.font);
+                    });
+                }
+                if (data.view) {
+                    view = data.view;
+                    document.querySelectorAll('.view-toggle').forEach(b => {
+                        b.classList.toggle('active', b.dataset.view === data.view);
+                    });
+                }
+                updateJersey();
+            } else {
+                updateJersey();
+            }
+        } catch (e) {
+            updateJersey();
+        }
+    }
+
+    // ============================================================
+    // ORDER FORM
     // ============================================================
     const EMAILJS_PUBLIC_KEY = "lmg0gZVXEITGHCSbS";
     const EMAILJS_SERVICE_ID = "service_9u6ulhs";
     const EMAILJS_TEMPLATE_ID = "template_5p2of5c";
     const JERSEY_PRICE = 30000;
     const SUBMISSION_TIMEOUT_MS = 12000;
-    const getEmailJS = () => window.emailjs;
 
     let emailJSInitialized = false;
     let isSubmitting = false;
@@ -3218,10 +2759,8 @@
     }
 
     function initializeEmailJS() {
-        const emailjs = getEmailJS();
-        if (!emailjs || typeof emailjs.init !== "function") {
-            return false;
-        }
+        const emailjs = window.emailjs;
+        if (!emailjs || typeof emailjs.init !== "function") return false;
         if (!emailJSInitialized) {
             try {
                 emailjs.init(EMAILJS_PUBLIC_KEY);
@@ -3249,23 +2788,9 @@
     initializeEmailJS();
 
     const jerseyData = {
-        Football: [
-            "Real Madrid", "Barcelona", "Manchester United", "Manchester City",
-            "Arsenal", "Chelsea", "Liverpool", "PSG", "Bayern Munich",
-            "Juventus", "AC Milan", "Inter Milan", "Atletico Madrid",
-            "Borussia Dortmund", "Napoli", "Ajax"
-        ],
-        Basketball: [
-            "Los Angeles Lakers", "Chicago Bulls", "Boston Celtics",
-            "Golden State Warriors", "Miami Heat", "Brooklyn Nets",
-            "Phoenix Suns", "New York Knicks", "Dallas Mavericks",
-            "Milwaukee Bucks"
-        ],
-        Baseball: [
-            "New York Yankees", "Los Angeles Dodgers", "Boston Red Sox",
-            "Chicago Cubs", "New York Mets", "Atlanta Braves",
-            "San Francisco Giants", "Philadelphia Phillies"
-        ],
+        Football: ["Real Madrid", "Barcelona", "Manchester United", "Manchester City", "Arsenal", "Chelsea", "Liverpool", "PSG", "Bayern Munich", "Juventus", "AC Milan", "Inter Milan", "Atletico Madrid", "Borussia Dortmund", "Napoli", "Ajax"],
+        Basketball: ["Los Angeles Lakers", "Chicago Bulls", "Boston Celtics", "Golden State Warriors", "Miami Heat", "Brooklyn Nets", "Phoenix Suns", "New York Knicks", "Dallas Mavericks", "Milwaukee Bucks"],
+        Baseball: ["New York Yankees", "Los Angeles Dodgers", "Boston Red Sox", "Chicago Cubs", "New York Mets", "Atlanta Braves", "San Francisco Giants", "Philadelphia Phillies"],
     };
 
     const jerseyTypeSelect = document.getElementById("jerseyType");
@@ -3316,7 +2841,6 @@
         document.getElementById("summaryQuantity").textContent = quantity;
 
         const totalPrice = JERSEY_PRICE * quantity;
-
         document.getElementById("summaryPrice").textContent = formatPrice(JERSEY_PRICE);
         document.getElementById("summaryTotal").textContent = formatPrice(totalPrice);
         paymentAmount.textContent = formatPrice(totalPrice);
@@ -3330,7 +2854,7 @@
     sizeSelect.addEventListener("change", updateSummary);
     quantityInput.addEventListener("change", updateSummary);
 
-    // Form persistence with localStorage
+    // Form persistence
     function saveFormData() {
         try {
             const data = {
@@ -3376,24 +2900,17 @@
         } catch (e) {}
     }
 
-    // Auto-save form data
     document.querySelectorAll('#orderForm input, #orderForm select, #orderForm textarea').forEach(field => {
         field.addEventListener('change', saveFormData);
         field.addEventListener('input', saveFormData);
     });
 
-    // Load saved form data
     loadFormData();
 
-    // ============================================================
-    // 5. FORM SUBMISSION
-    // ============================================================
+    // Form submission
     orderForm.addEventListener("submit", async (e) => {
         e.preventDefault();
-
-        if (isSubmitting) {
-            return;
-        }
+        if (isSubmitting) return;
 
         const fullName = document.getElementById("fullName").value.trim();
         const phone = document.getElementById("phone").value.trim();
@@ -3413,14 +2930,13 @@
             return;
         }
 
-        // Validate phone number for Nigeria
         const phonePattern = /^(0[789][01]\d{8})|(\+?234[789][01]\d{8})$/;
         if (!phonePattern.test(phone)) {
             alert("Please enter a valid Nigerian phone number (e.g., 08012345678 or +2348012345678)");
             return;
         }
 
-        const emailjs = getEmailJS();
+        const emailjs = window.emailjs;
         const isEmailJSReady = initializeEmailJS();
 
         if (!emailjs || typeof emailjs.send !== "function" || !isEmailJSReady) {
@@ -3432,15 +2948,15 @@
         submitBtn.disabled = true;
         submitBtn.innerHTML = '<span class="spinner"></span>PROCESSING...';
 
-        // Get customizer design data
+        // Get customizer design
         let designData = {};
         try {
-            const saved = localStorage.getItem('dripxi_design');
+            const saved = localStorage.getItem('dripxi_customizer');
             if (saved) designData = JSON.parse(saved);
         } catch (e) {}
 
         const templateParams = {
-            to_email: "11.drip.eleven@gmail.com", // YOUR ACTUAL EMAIL HERE
+            to_email: "11.drip.eleven@gmail.com",
             reply_to: email,
             customer_name: fullName,
             customer_phone: phone,
@@ -3455,7 +2971,9 @@
             total_cost: totalCost,
             special_requests: notes || "None",
             design_color: designData.color || "Not specified",
-            design_font: designData.font || "Not specified"
+            design_font: designData.font || "Not specified",
+            design_name: designData.name || "Not specified",
+            design_number: designData.number || "Not specified"
         };
 
         try {
@@ -3483,35 +3001,20 @@
     });
 
     // ============================================================
-    // 6. NEWSLETTER FORM
+    // INIT
     // ============================================================
-    document.getElementById('newsletterForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const email = document.getElementById('newsletterEmail').value.trim();
-        if (email) {
-            showToast('✅ Subscribed to newsletter!', 'success');
-            this.reset();
-        }
-    });
+    // Load saved design and draw jersey
+    loadSavedDesign();
 
-    // ============================================================
-    // 7. INITIAL UPDATE
-    // ============================================================
-    updateSummary();
-
-    // Check for order already submitted (persist across refresh)
+    // Check for order already submitted
     if (localStorage.getItem('dripxi_order_submitted')) {
         successBox.classList.add('show');
         orderForm.style.display = 'none';
         localStorage.removeItem('dripxi_order_submitted');
     }
 
-    // If order is submitted, store flag
-    const originalSubmit = orderForm.submit;
-    const formSubmitHandler = orderForm._submitHandler;
-    orderForm.addEventListener('submit', function() {
-        // We'll handle this in the main submit listener
-    });
+    // Update summary on load
+    updateSummary();
 </script>
 
 </body>
